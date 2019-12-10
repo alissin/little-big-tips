@@ -1,6 +1,6 @@
-# _**Little Big Tips**_ ![Joystick](https://raw.githubusercontent.com/alissin/alissin.github.io/master/images/joystick.png)
+## _**Little Big Tips**_ > Pattern / Algorithm
 
-## Pattern / Algorithm > pathfinder using Breadth First Search
+## ![Joystick](https://raw.githubusercontent.com/alissin/alissin.github.io/master/images/joystick.png) pathfinder using Breadth First Search
 
 Description...
 
