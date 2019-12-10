@@ -37,6 +37,7 @@ public class Level : MonoBehaviour {
 ```
 
 Define the fields:
+P.S.: you can find the `Block.cs` script in the repository.
 
 ```csharp
 [SerializeField]
@@ -138,5 +139,5 @@ void BuildShortestPathBlocks() {
 }
 ```
 
-#### Classes:
-[Block](./Block.cs)
+#### Scripts:
+[Block.cs](./Block.cs), [Level.cs](./Level.cs)

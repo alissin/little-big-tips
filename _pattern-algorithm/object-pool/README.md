@@ -110,9 +110,9 @@ public void ReturnObjToPool(GameObject obj) {
 }
 ```
 
-You can see here that you use the array to control whicth object is available and the `setActive()` method to actually "use" the object. It is important in this case because there is no need to keep the object `active == true` when you are not using it.
+You can see here that you use the array to control whicth object is available and the `SetActive()` method to actually "use" the object. It is important in this case because there is no need to keep the object `active == true` when you are not using it.
 
-Step 4 - create a C# script `Enemy.cs` and attach this script to the `Enemy` game object and create the `Enemy Prefab`.
+Step 4 - create a C# script `Enemy.cs` and attach this script to the `Enemy` game object and create the `Enemy Prefab`. Don't forget to set the field `_spawnPrefab` on `Spawn Controller` game object via inspector.
 
 Step 5 - in the `Enemy.cs` script, call this `OnHide()` method when you do not need the object anymore and want to return it to the object pool. In this case, the warrior is hidden when it gets to the player base (blue castle):
 
@@ -127,3 +127,6 @@ public void OnHide() {
 ```
 
 To keep this example simple and focused on the object pool mechanism, it's up to you to decide how to get the reference of `Spawn Controller` script. You could use `FindObjectOfType<SpawnController>()` but I suggest the observer pattern, callback mechanism like an `Event` / `Action` or even the [singleton pattern](../singleton) with a global access on this spawner mechanism.
+
+#### Scripts:
+[SpawnController.cs](./SpawnController.cs), [Enemy.cs](./Enemy.cs)
