@@ -19,7 +19,7 @@ Instead, you can load (instantiate) a pool of objects at the beginning, recycle 
 In this case, in this level, an object pool with size of 5 objects was enough because this level could have a max of 4 warriors at a time walking on the path. Of course, in a level with a long path, you could increase the size of the object pool.
 
 In the hierarchy, create a game object and name it as `Spawn Controller`:
-P.S.: it will be like a container to all instantiated game objects (warriors) that will stay nested (as a child) to this game object.
+_Note_: it will be like a container to all instantiated game objects (warriors) that will stay nested (as a child) to this game object.
 
 ```
 Hierarchy:
@@ -110,9 +110,9 @@ public void ReturnObjToPool(GameObject obj) {
 }
 ```
 
-You can see here that you use the array to control whicth object is available and the `SetActive()` method to actually "use" the object. It is important in this case because there is no need to keep the object `active == true` when you are not using it.
+You can see here that you use the array to control which object is available and the `SetActive()` method to actually "use" the object. It is important in this case because there is no need to keep the object `active == true` when you are not using it.
 
-Step 4 - create a C# script `Enemy.cs` and attach this script to the `Enemy` game object and create the `Enemy Prefab`. Don't forget to set the field `_spawnPrefab` on `Spawn Controller` game object via inspector.
+Step 4 - create the `Enemy` game object on hierarchy, create a C# script `Enemy.cs` and attach this script to the `Enemy` game object and finally create the `Enemy Prefab`. Don't forget to set the field `_spawnPrefab` on `Spawn Controller` game object via inspector.
 
 Step 5 - in the `Enemy.cs` script, call this `OnHide()` method when you do not need the object anymore and want to return it to the object pool. In this case, the warrior is hidden when it gets to the player base (blue castle):
 
@@ -132,5 +132,3 @@ To keep this example simple and focused on the object pool mechanism, it's up to
 [SpawnController.cs](./SpawnController.cs), [Enemy.cs](./Enemy.cs)
 
 More _**Little Big Tips**_? Nice, [follow me](https://github.com/alissin/little-big-tips)!
-
-Are you done? Want some fun? No problem, let's [play](https://simmer.io/@alissin)!
