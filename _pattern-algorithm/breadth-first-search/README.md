@@ -36,7 +36,7 @@ public class Level : MonoBehaviour {
     ...
 ```
 
-Define the fields:
+Define the fields:<br/>
 P.S.: you can find the `Block.cs` script in the repository.
 
 ```csharp
@@ -141,3 +141,7 @@ void BuildShortestPathBlocks() {
 
 #### Scripts:
 [Block.cs](./Block.cs), [Level.cs](./Level.cs)
+
+More _**Little Big Tips**_? Nice, [follow me](https://github.com/alissin/little-big-tips)!
+
+Are you done? Want some fun? No problem, let's [play](https://simmer.io/@alissin)!

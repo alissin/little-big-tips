@@ -99,7 +99,7 @@ GameObject GetObjFromPool(Vector3 spawnPos, Quaternion spawnRot) {
 }
 ```
 
-Step 3 - once you used the object, you need to return it to the pool:
+Step 3 - once you are done with the object, you need to return it to the pool:
 
 ```csharp
 public void ReturnObjToPool(GameObject obj) {
@@ -130,3 +130,7 @@ To keep this example simple and focused on the object pool mechanism, it's up to
 
 #### Scripts:
 [SpawnController.cs](./SpawnController.cs), [Enemy.cs](./Enemy.cs)
+
+More _**Little Big Tips**_? Nice, [follow me](https://github.com/alissin/little-big-tips)!
+
+Are you done? Want some fun? No problem, let's [play](https://simmer.io/@alissin)!
