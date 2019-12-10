@@ -18,6 +18,24 @@ The technique of Breadth First Search consists in, given a start point, it looks
 #### Solution suggestion
 In this case, the path will not change in runtime. When the level starts, the shortest path should already be defined and the enemy warriors should have access to it.
 
+In the hierarchy, create a game object and put all the blocks nested (as a child) to this game object. Name this as `Level`:
+
+```
+Hierarchy:
+- Level
+-- Block 1
+-- Block 2
+...
+-- Block N
+```
+
+ Create a C# script `Level.cs` and attach this script to the `Level` game object:
+
+```csharp
+public class Level : MonoBehaviour {
+    ...
+```
+
 Define the fields:
 
 ```csharp
@@ -38,8 +56,9 @@ Vector2Int[] _directions = {
 };
 ```
 
-When your level is loaded, start the process:<br/>
-Step 1 - get all blocks in your level and put it in the Dictionary:
+When your level is loaded, start the process.
+
+Step 1 - get all blocks in your level and put it in the `Dictionary`:
 
 ```csharp
 void LoadLevelBlocks() {
@@ -54,7 +73,7 @@ void LoadLevelBlocks() {
 }
 ```
 
-Step 2 - find the neighbour blocks, given the center search point. The Queue and the Dictionary will help to organize it:
+Step 2 - find the neighbour blocks, given the center search point. The `Queue` and the `Dictionary` will help to organize it:
 
 ```csharp
 void FindPathBlocksBFS() {
