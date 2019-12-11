@@ -24,10 +24,10 @@ Hierarchy:
 -- Player
 ```
 
-Create a C# script `PlayerController.cs` and attach this script to the `Player` game object:
+Create a C# script `Player.cs` and attach this script to the `Player` game object:
 
 ```csharp
-public class PlayerController : MonoBehaviour {
+public class Player : MonoBehaviour {
     ...
 ```
 
@@ -101,6 +101,6 @@ void SetupRotation() {
 ```
 
 #### Classes:
-[PlayerController.cs](./PlayerController.cs)
+[Player.cs](./Player.cs)
 
 More _**Little Big Tips**_? Nice, [follow me](https://github.com/alissin/little-big-tips)!
