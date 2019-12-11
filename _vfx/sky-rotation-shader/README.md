@@ -2,9 +2,9 @@
 
 ### sky rotation shader
 
-See this VFX in action [here](./sky-rotation-shader.mkv)
+See this VFX in action [here](https://youtu.be/RaVctatXrXM)
 
-> [![sky rotation shader](./sky-rotation-shader_small.png)](./sky-rotation-shader.mkv)
+> <a href="https://youtu.be/RaVctatXrXM" target="_blank"><img src="https://img.youtube.com/vi/RaVctatXrXM/0.jpg" alt="sky rotation shader" /></a>
 
 #### Scenario
 It would be really great not only to see the clouds moving on this amazing sky, on this amazing low poly environment, but also to control the velocity and maybe stop the rotation for some reason.
@@ -66,5 +66,12 @@ Step 7 - create a material, change it to use your shader and finally, change the
 ![material_lighting-settings](./material_lighting-settings.png)
 
 Step 8 - hit play!
+
+Bonus! - Step 9 - want to change the rotation value programmatically? Here we go:
+
+```csharp
+Material skyboxMaterial = RenderSettings.skybox;
+skyboxMaterial.setFloat("_RotationSpeed", 10.0f);
+```
 
 More _**Little Big Tips**_? Nice, [follow me](https://github.com/alissin/little-big-tips)!
