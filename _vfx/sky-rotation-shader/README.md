@@ -4,7 +4,7 @@
 
 See this VFX in action [here](https://youtu.be/RaVctatXrXM)
 
-> <a href="https://youtu.be/RaVctatXrXM" target="_blank"><img src="https://img.youtube.com/vi/RaVctatXrXM/0.jpg" alt="sky rotation shader" /></a>
+> [![sky rotation shader](./sky-rotation-shader_small.png)](https://youtu.be/RaVctatXrXM)
 
 #### Scenario
 It would be really great not only to see the clouds moving on this amazing sky, on this amazing low poly environment, but also to control the velocity and maybe stop the rotation for some reason.
