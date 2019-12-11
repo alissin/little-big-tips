@@ -79,7 +79,7 @@ _Note:_ our rocket Player fits the right place above the landing pad smoothly.
 ```csharp
 void Land(Transform groundTransform) {
     if (!_isLandingCompleted) {
-        // check if this ground / landing offset position of the Player makes sense for you. In my case, I used 1.95f
+        // TODO: check if this ground / landing offset position of the Player makes sense for you. In my case, I used 1.95f
         float landingYPos = groundTransform.position.y + 2.0f;
 
         Vector3 targetPos = new Vector3(groundTransform.position.x, landingYPos, groundTransform.position.z);
