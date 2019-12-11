@@ -13,7 +13,7 @@ Strong enemy warriors are spawning from enemy base (red castle) and going to att
 Find the shortest path between start point (red castle) and end point (blue castle).
 
 #### Solution simplified concept
-The technique of Breadth First Search consists in, given a start point, it looks for the neighbour points (blocks in this case), it sets on each of these blocks where the search comes from (I like to refer this as "tail") and finally, once the algorithm finds the end point, it reads each block backwards (starting with the end point), check the "tail" and create a (reverse) list with it.
+The technique of Breadth First Search consists in, given a start point, it looks for the neighbour points (blocks in this case), it sets on each of these blocks where the search comes from (I like to refer this as "tail") and finally, once the algorithm finds the end point, it reads each block backwards (starting with the end point), checks the "tail" and creates a (reverse) list with it.
 
 #### Solution suggestion
 In this case, the path will not change in runtime. When the level starts, the shortest path should already be defined and the enemy warriors should have access to it.

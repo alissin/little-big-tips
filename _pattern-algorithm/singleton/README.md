@@ -10,10 +10,10 @@ Based on this demonstration / prototype: [Combat Wings](https://simmer.io/@aliss
 When the player airplane gets closer to the enemy, the attack starts!
 
 #### Problem description
-There are several enemies on this level and all of them needs to know where is the player airplane, check if it is close enough to start the attack.
+There are several enemies on this level and all of them need to know where is the player airplane and check if it is close enough to start the attack.
 
 #### Solution simplified concept
-It garantees a unique global instance of it and you can access it whenever you need, wherever you are. Although singleton pattern is not likely recommended to big games, for simple ones, sometimes, it can worth.
+It garantees a unique global instance of it and we can access it whenever we need, wherever we are. Although singleton pattern is not likely recommended to big games, for simple ones, sometimes, it can worth.
 
 #### Solution suggestion
 In this case a singleton instance of a class will keep the reference of the player airplane, more specifically its position and the enemy can check the distance between then to start the attack.<br/>
@@ -62,7 +62,7 @@ void Awake() {
 }
 ```
 
-Step 2 - make sure the player position is always up-to-date:
+Step 2 - make sure the player's position is always up-to-date:
 
 ```csharp
 void Update() {
@@ -71,7 +71,7 @@ void Update() {
 }
 ```
 
-Step 3 - cool! Now, you can access this information whenever you need, wherever you are:
+Step 3 - cool! Now, we can access this information whenever we need, wherever we are:
 
 ```csharp
 void CheckPlayerPosition() {
@@ -80,7 +80,7 @@ void CheckPlayerPosition() {
 }
 ```
 
-Ok. Now imagine that you need more singletons classes. Come on, duplicate the code? Will you need to have the `_instance` field declaration, the instantiation code (`_instance = this`) on `Awake()` method in Every singleton class? No way! If we will use a singleton, let's use a... more "elegant" singleton then!
+Ok. Now imagine that we need more singletons classes. Come on, duplicate the code? Will we need to have the `_instance` field declaration, the instantiation code (`_instance = this`) on `Awake()` method in Every singleton class? No way! If we will use a singleton, let's use a... more "elegant" singleton then!
 
 _Note_: We will use [Generics](https://en.wikipedia.org/wiki/Generic_programming) in this case.
 
@@ -126,7 +126,7 @@ public class GameManager : BaseManager<GameManager> {
     ...
 ```
 
-Pretty cool! Now, if you want to create another singleton class, for example a `UIManager.cs` or `SoundManager.cs`, you just need to extend `BaseManager.cs` and you are done!
+Pretty cool! Now, if we want to create another singleton class, for example a `UIManager.cs` or `SoundManager.cs`, we just need to extend `BaseManager.cs` and we are done!
 
 #### Classes:
 [BaseManager.cs](./BaseManager.cs), [GameManager.cs](./GameManager.cs)

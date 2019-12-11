@@ -12,13 +12,13 @@ It would be really great not only to see the clouds moving on this amazing sky, 
 #### Solution suggestion
 Unity already has a very cool built-in shader for SkyBox that uses a cubemap for that and makes the rotation possible. This _**Little Big Tip**_ will only add a parameter to control the velocity and a toggle to turn on/off the rotation as well.
 
-First, you can find and download all the Unity built-in shaders [here](https://unity3d.com/get-unity/download/archive).
+First, we can find and download all the Unity built-in shaders [here](https://unity3d.com/get-unity/download/archive).
 
 Then, get the `Skybox-Cubed.shader` inside the `DefaultResourcesExtra` folder and put it in your Unity project `Assets` folder. In my case, I renamed the file to `SkyboxRotation.shader`.
 
 Step 1 - Open the shader file on a text editor and rename the path and the name on `Shader` section. In my case, I renamed to `"MyShader/SkyboxRotation"`.
 
-Step 2 - Add these properties on `Properties` section of the shader code:
+Step 2 - Add these properties on `Properties` section:
 
 ```
 _RotationSpeed ("Rotation Speed", Range(1.0, 50.0)) = 10.0

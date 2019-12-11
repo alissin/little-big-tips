@@ -67,7 +67,7 @@ void InitPool() {
 }
 ```
 
-Cool! At this time, you already have all game objects instantiated and ready to use.<br/>
+Cool! At this time, we already have all game objects instantiated and ready to use.<br/>
 You can use a spawn mechanism of your choice. In this case, a Coroutine will be used.
 
 Step 2 - use the objects of the pool:
@@ -99,7 +99,7 @@ GameObject GetObjFromPool(Vector3 spawnPos, Quaternion spawnRot) {
 }
 ```
 
-Step 3 - once you are done with the object, you need to return it to the pool:
+Step 3 - once we are done with the object, we need to return it to the pool:
 
 ```csharp
 public void ReturnObjToPool(GameObject obj) {
@@ -110,7 +110,7 @@ public void ReturnObjToPool(GameObject obj) {
 }
 ```
 
-You can see here that you use the array to control which object is available and the `SetActive()` method to actually "use" the object. It is important in this case because there is no need to keep the object `active == true` when you are not using it.
+You can see here that you use the array to control which object is available and the `SetActive()` method to actually "use" the object. It is important in this case because there is no need to keep the object `active == true` when we are not using it.
 
 Step 4 - create the `Enemy` game object on hierarchy, create a C# script `Enemy.cs` and attach this script to the `Enemy` game object and finally create the `Enemy Prefab`. Don't forget to set the field `_spawnPrefab` on `Spawn Controller` game object via inspector.
 
