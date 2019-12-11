@@ -2,28 +2,30 @@
 
 ### sky rotation shader
 
-Based on this demonstration / prototype: [Combat Wings](https://simmer.io/@alissin/combat-wings)
+See this VFX in action [here](./sky-rotation-shader.mkv)
 
-> ![Combat Wings](https://raw.githubusercontent.com/alissin/alissin.github.io/master/demonstration-projects/combat-wings.png)
+> [![sky rotation shader](./sky-rotation-shader_small.png)](./sky-rotation-shader.mkv)
 
 #### Scenario
-It would be really great to see the clouds moving on this amazing sky, on this amazing low poly environment.
+It would be really great not only to see the clouds moving on this amazing sky, on this amazing low poly environment, but also to control the velocity and maybe stop the rotation for some reason.
 
 #### Solution suggestion
-Unity already has a very cool built-in shader for SkyBox that uses a cubemap for that. This _**Little Big Tip**_ will only add the constant rotation behaviour on it.
+Unity already has a very cool built-in shader for SkyBox that uses a cubemap for that and makes the rotation possible. This _**Little Big Tip**_ will only add a parameter to control the velocity and a toggle to turn on/off the rotation as well.
 
 First, you can find and download all the Unity built-in shaders [here](https://unity3d.com/get-unity/download/archive).
 
-Then, get the `Skybox-Cubed.shader` inside the `DefaultResourcesExtra` folder and put it in your Unity project `Assets` folder.
+Then, get the `Skybox-Cubed.shader` inside the `DefaultResourcesExtra` folder and put it in your Unity project `Assets` folder. In my case, I renamed the file to `SkyboxRotation.shader`.
 
-Step 1 - Open the shader file on a text editor and add these properties on `Properties` section of the shader code:
+Step 1 - Open the shader file on a text editor and rename the path and the name on `Shader` section. In my case, I renamed to `"MyShader/SkyboxRotation"`.
+
+Step 2 - Add these properties on `Properties` section of the shader code:
 
 ```
-_RotationSpeed ("Rotation Speed", Range(1.0, 10.0)) = 2.0
+_RotationSpeed ("Rotation Speed", Range(1.0, 50.0)) = 10.0
 [Toggle] _IsRotationEnabled ("Is Rotation Enabled?", Float) = 1
 ```
 
-Step 2 - set the `#pragma shader_feature`, bellow the `CGPROGRAM` and anothers `#pragma` lines to use this toggle:
+Step 3 - set the `#pragma shader_feature`, bellow the `CGPROGRAM` and anothers `#pragma` lines to use this toggle:
 
 ```
 CGPROGRAM
@@ -32,23 +34,37 @@ CGPROGRAM
 #pragma shader_feature _ISROTATIONENABLED_OFF _ISROTATIONENABLED_ON
 ```
 
-Step 3 - in the `vert` function (vertex function), use this condition to toggle (on/off) the rotation:
+Step 4 - declare the `_RotationSpeed` property like the other properties:
+
+```
+...
+half _Exposure;
+float _Rotation;
+float _RotationSpeed;
+```
+
+Step 5 - in the `vert` function (vertex function), use this condition to toggle (on/off) the rotation:
 
 ```
 ...
 #if _ISROTATIONENABLED_ON
     _Rotation += _Time.y % 359 * _RotationSpeed;
+    float3 rotated = RotateAroundYInDegrees(v.vertex, _Rotation);
+    o.vertex = UnityObjectToClipPos(rotated);
+#else
+    o.vertex = UnityObjectToClipPos(v.vertex);
 #endif
-float3 rotated = RotateAroundYInDegrees(v.vertex, _Rotation);
 ...
 ```
 
-Step 4 - create a material and change it to use this shader.
+Step 6 - find a very cool skybox cubemap on Asset Store and don't forget to set the texture shape as `Cube` and apply:
 
-Step 5 - find a very cool skybox cubemap on Asset Store.
+![cubemap-texture](./cubemap-texture.png)
 
-Step 6 - apply this material on Lighting Settings > Environment > Skybox Material.
+Step 7 - create a material, change it to use your shader and finally, change the `Skybox Material` on Lighting Settings (Lighting Settings > Environment > Skybox Material):
 
-Step 7 - enjoy the new sky!
+![material_lighting-settings](./material_lighting-settings.png)
+
+Step 8 - hit play!
 
 More _**Little Big Tips**_? Nice, [follow me](https://github.com/alissin/little-big-tips)!
