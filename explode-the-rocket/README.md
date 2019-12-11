@@ -4,7 +4,7 @@
 
 Based on this demonstration / prototype: [Boost the Rocket](https://simmer.io/@alissin/boost-the-rocket)
 
-> ![Boost the Rocket](https://raw.githubusercontent.com/alissin/alissin.github.io/master/demonstration-projects/boost-the-rocket.png)
+> ![Boost the Rocket](./boost-the-rocket-explosion.png)
 
 #### Scenario
 Don't touch anything on this dangerous space dungeons because you can explode yourself!
@@ -86,6 +86,6 @@ void ImpulseByExplosion(Transform transform, int idx) {
 ```
 
 #### Classes:
-[Player.cs](./Player.cs), [BreakablePlayer.cs](.BreakablePlayer.cs)
+[Player.cs](./Player.cs), [BreakablePlayer.cs](./BreakablePlayer.cs)
 
 More _**Little Big Tips**_? Nice, [follow me](https://github.com/alissin/little-big-tips)!
