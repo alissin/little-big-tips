@@ -59,11 +59,11 @@ Step 5 - in the `vert` function (vertex function), use this condition to toggle 
 
 Step 6 - find a very cool skybox cubemap on Asset Store and don't forget to set the texture shape as `Cube` and apply:
 
-![cubemap-texture](./cubemap-texture.png)
+> ![cubemap-texture](./cubemap-texture.png)
 
 Step 7 - create a material, change it to use your shader and finally, change the `Skybox Material` on Lighting Settings (Lighting Settings > Environment > Skybox Material):
 
-![material_lighting-settings](./material_lighting-settings.png)
+> ![material_lighting-settings](./material_lighting-settings.png)
 
 Step 8 - hit play!
 
@@ -71,7 +71,7 @@ Bonus! - Step 9 - want to change the rotation value programmatically? Here we go
 
 ```csharp
 Material skyboxMaterial = RenderSettings.skybox;
-skyboxMaterial.setFloat("_RotationSpeed", 10.0f);
+skyboxMaterial.setFloat("_RotationSpeed", 20.0f);
 ```
 
 More _**Little Big Tips**_? Nice, [follow me](https://github.com/alissin/little-big-tips)!
