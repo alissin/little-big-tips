@@ -2,7 +2,8 @@
 
 ### object pool pattern
 
-Based on this demonstration / prototype: [Realm Defender](https://simmer.io/@alissin/realm-defender)
+Based on this playable demonstration / prototype: [Realm Defender](https://simmer.io/@alissin/realm-defender).<br/>
+Feel free to try the behaviour of this _**Little Big Tip**_.
 
 > ![Realm Defender](https://raw.githubusercontent.com/alissin/alissin.github.io/master/demonstration-projects/realm-defender.png)
 
@@ -130,5 +131,7 @@ To keep this example simple and focused on the object pool mechanism, it's up to
 
 #### Scripts:
 [SpawnController.cs](./SpawnController.cs), [Enemy.cs](./Enemy.cs)
+
+Again, feel free to try the behaviour of this _**Little Big Tip**_ on [Realm Defender](https://simmer.io/@alissin/realm-defender).
 
 More _**Little Big Tips**_? Nice, [follow me](https://github.com/alissin/little-big-tips)!

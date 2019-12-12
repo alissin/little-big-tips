@@ -2,7 +2,8 @@
 
 ### airplane movement
 
-Based on this demonstration / prototype: [Combat Wings](https://simmer.io/@alissin/combat-wings)
+Based on this playable demonstration / prototype: [Combat Wings](https://simmer.io/@alissin/combat-wings).<br/>
+Feel free to try the behaviour of this _**Little Big Tip**_.
 
 > ![Combat Wings](https://raw.githubusercontent.com/alissin/alissin.github.io/master/demonstration-projects/combat-wings.png)
 
@@ -102,5 +103,7 @@ void SetupRotation() {
 
 #### Scripts:
 [Player.cs](./Player.cs)
+
+Again, feel free to try the behaviour of this _**Little Big Tip**_ on [Combat Wings](https://simmer.io/@alissin/combat-wings).
 
 More _**Little Big Tips**_? Nice, [follow me](https://github.com/alissin/little-big-tips)!

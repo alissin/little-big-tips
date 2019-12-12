@@ -2,7 +2,8 @@
 
 ### land the rocket
 
-Based on this demonstration / prototype: [Boost the Rocket](https://simmer.io/@alissin/boost-the-rocket)
+Based on this playable demonstration / prototype: [Boost the Rocket](https://simmer.io/@alissin/boost-the-rocket).<br/>
+Feel free to try the behaviour of this _**Little Big Tip**_.
 
 > ![Boost the Rocket](./boost-the-rocket-landing.png)
 
@@ -100,5 +101,7 @@ Step 5 - make sure to have a `Collider` component attached to your landing pad g
 
 #### Scripts:
 [Player.cs](./Player.cs)
+
+Again, feel free to try the behaviour of this _**Little Big Tip**_ on [Boost the Rocket](https://simmer.io/@alissin/boost-the-rocket).
 
 More _**Little Big Tips**_? Nice, [follow me](https://github.com/alissin/little-big-tips)!
