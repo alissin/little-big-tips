@@ -98,7 +98,7 @@ Step 4 - make sure to have a `Rigibody` (`gravity == true` / `kinematic == false
 
 Step 5 - make sure to have a `Collider` component attached to your landing pad game object.
 
-#### Classes:
+#### Scripts:
 [Player.cs](./Player.cs)
 
 More _**Little Big Tips**_? Nice, [follow me](https://github.com/alissin/little-big-tips)!

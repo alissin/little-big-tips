@@ -100,7 +100,7 @@ void SetupRotation() {
 }
 ```
 
-#### Classes:
+#### Scripts:
 [Player.cs](./Player.cs)
 
 More _**Little Big Tips**_? Nice, [follow me](https://github.com/alissin/little-big-tips)!

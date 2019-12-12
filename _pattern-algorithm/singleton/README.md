@@ -128,7 +128,7 @@ public class GameManager : BaseManager<GameManager> {
 
 Pretty cool! Now, if we want to create another singleton class, for example a `UIManager.cs` or `SoundManager.cs`, we just need to extend `BaseManager.cs` and we are done!
 
-#### Classes:
+#### Scripts:
 [BaseManager.cs](./BaseManager.cs), [GameManager.cs](./GameManager.cs)
 
 More _**Little Big Tips**_? Nice, [follow me](https://github.com/alissin/little-big-tips)!

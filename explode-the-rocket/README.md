@@ -85,7 +85,7 @@ void ImpulseByExplosion(Transform transform, int idx) {
 }
 ```
 
-#### Classes:
+#### Scripts:
 [Player.cs](./Player.cs), [BreakablePlayer.cs](./BreakablePlayer.cs)
 
 More _**Little Big Tips**_? Nice, [follow me](https://github.com/alissin/little-big-tips)!

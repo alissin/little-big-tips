@@ -16,9 +16,9 @@ First, we can find and download all the Unity built-in shaders [here](https://un
 
 Then, get the `Skybox-Cubed.shader` inside the `DefaultResourcesExtra` folder and put it in your Unity project `Assets` folder. In my case, I renamed the file to `SkyboxRotation.shader`.
 
-Step 1 - Open the shader file on a text editor and rename the path and the name on `Shader` section. In my case, I renamed to `"MyShader/SkyboxRotation"`.
+Step 1 - Open the shader file on a text editor and rename the path and the name on `Shader` block of code. In my case, I renamed to `"MyShader/SkyboxRotation"`.
 
-Step 2 - Add these properties on `Properties` section:
+Step 2 - Add these properties on `Properties` block of code:
 
 ```
 _RotationSpeed ("Rotation Speed", Range(1.0, 50.0)) = 10.0
