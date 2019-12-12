@@ -57,7 +57,7 @@ Step 5 - in the `vert` function (vertex function), use this condition to toggle 
 ...
 ```
 
-Step 6 - find a very cool skybox cubemap on Asset Store and don't forget to set the texture shape as `Cube` and apply:
+Step 6 - find a very cool skybox cubemap in the Asset Store and don't forget to set the texture shape as `Cube` and apply:
 
 > ![cubemap-texture](./cubemap-texture.png)
 
