@@ -91,4 +91,4 @@ void ImpulseByExplosion(Transform transform, int idx) {
 
 Again, feel free to try the behaviour of this _**Little Big Tip**_ on [Boost the Rocket](https://simmer.io/@alissin/boost-the-rocket).
 
-More _**Little Big Tips**_? Nice, [follow me](https://github.com/alissin/little-big-tips)!
+More _**Little Big Tips**_? Nice, [let's go](https://github.com/alissin/little-big-tips)!

@@ -96,4 +96,4 @@ void Update() {
 
 Again, feel free to try the behaviour of this _**Little Big Tip**_ on [Realm Defender](https://simmer.io/@alissin/realm-defender).
 
-More _**Little Big Tips**_? Nice, [follow me](https://github.com/alissin/little-big-tips)!
+More _**Little Big Tips**_? Nice, [let's go](https://github.com/alissin/little-big-tips)!

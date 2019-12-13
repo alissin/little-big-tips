@@ -69,4 +69,4 @@ _Note:_ Put something in the scene, in front to the `Camera` to have a better lo
 
 Again, feel free to try the behaviour of this _**Little Big Tip**_ on [Combat Wings](https://simmer.io/@alissin/combat-wings).
 
-More _**Little Big Tips**_? Nice, [follow me](https://github.com/alissin/little-big-tips)!
+More _**Little Big Tips**_? Nice, [let's go](https://github.com/alissin/little-big-tips)!
