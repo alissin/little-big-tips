@@ -11,15 +11,8 @@ Feel free to try the behaviour of this _**Little Big Tip**_.
 When the player airplane is hit, the big impact will shake it all!
 
 #### Solution suggestion
-In this case, the path rail mechanism is responsible to move the airplane through the scenario. The path rail mechanism actually controls the `Camera` game object and the `Player` game object is nested (as a child) to it:
-
-```
-Hierarchy:
-- Camera
--- Player
-```
-
-So, in this case, the `Camera` is shaked when something hits the `Player`.
+Actually, in this case, the `Camera` is shaked when something hits the `Player`.<br/>
+_Note_: the scope of this _**Little Big Tip**_ is only the shakking. How to start the shaking after the `Player` be hit, it's up to you.
 
 Create a C# script `Shake.cs` and attach this script to the `Camera` game object:
 
@@ -68,7 +61,8 @@ void Update() {
 }
 ```
 
-Step 2 - to simulate the shaking, hit play and change the `Is Shaking` via inspector to `true`. Cool, everything is shaking!
+Step 2 - to simulate the shaking, hit play and change the `Is Shaking` via inspector to `true`. Cool, everything is shaking!<br/>
+_Note:_ Put something in the scene, in front to the `Camera` to have a better look of the effect.
 
 #### Scripts:
 [Shake.cs](./Shake.cs)
