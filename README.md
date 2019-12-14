@@ -12,6 +12,8 @@ The _**Little Big Tips**_ are based on some game project prototypes that can be 
 
 Suggestions and contributions are very welcome!
 
+> ![Logo](https://raw.githubusercontent.com/alissin/alissin.github.io/master/images/logo.png)
+
 ## Pattern / Algorithm
 
 * [pathfinder using Breadth First Search](./_pattern-algorithm/breadth-first-search)
