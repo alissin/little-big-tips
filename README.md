@@ -20,9 +20,9 @@ Suggestions and contributions are very welcome!
 
 ## VFX - Shaders
 
-* [sky rotation shader](./_vfx/sky-rotation-shader)
 * [flag animation shader](./_vfx/flag-animation-shader)
 * [lava animation shader](./_vfx/lava-animation-shader)
+* [sky rotation shader](./_vfx/sky-rotation-shader)
 
 ## General tips
 
