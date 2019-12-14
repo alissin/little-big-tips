@@ -34,7 +34,7 @@ Step 2 - create a `Material` and name it as `Smoke`:
 
 Step 3 - select the `Smoke` game object and let's work on our `Particle System`:
 * renderer module (last module):
-    * material: select the `Smoke` material we've created in step 2
+    * material: select the `Material` we've created in step 2
 * main module:
     * start lifetime: 2
     * start speed: 0
