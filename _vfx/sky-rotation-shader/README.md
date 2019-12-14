@@ -2,7 +2,7 @@
 
 ### sky rotation shader
 
-See this VFX in action [here](https://youtu.be/RaVctatXrXM)
+See this VFX in action [here](https://youtu.be/RaVctatXrXM).
 
 > [![sky rotation shader](./sky-rotation-shader_small.png)](https://youtu.be/RaVctatXrXM)
 
@@ -74,4 +74,6 @@ Material skyboxMaterial = RenderSettings.skybox;
 skyboxMaterial.setFloat("_RotationSpeed", 20.0f);
 ```
 
-More _**Little Big Tips**_? Nice, [follow me](https://github.com/alissin/little-big-tips)!
+Again, feel free to see this VFX in action [here](https://youtu.be/RaVctatXrXM).
+
+More _**Little Big Tips**_? Nice, [let's go](https://github.com/alissin/little-big-tips)!
