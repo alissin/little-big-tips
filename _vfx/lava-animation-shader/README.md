@@ -117,7 +117,7 @@ ENDCG
 
 Step 6 - find a very cool 2D texture in the Asset Store and don't forget to set the texture shape as `2D` and apply:
 
-> ![2d-texture](./2d-texture.png)
+> ![2d-texture](../_common-images/2d-texture.png)
 
 Step 7 - find an "irregular" surface high poly mesh in the Asset Store.
 

@@ -126,7 +126,7 @@ Pass {
 
 Step 7 - find a very cool 2D texture in the Asset Store and don't forget to set the texture shape as `2D` and apply:
 
-> ![2d-texture](./2d-texture.png)
+> ![2d-texture](../_common-images/2d-texture.png)
 
 Step 8 - create a material, change it to use our shader, select your texture and finally attach this material to the `Plane` mesh:
 
