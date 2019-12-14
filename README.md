@@ -20,11 +20,12 @@ Suggestions and contributions are very welcome!
 * [object pool pattern](./_pattern-algorithm/object-pool)
 * [singleton pattern](./_pattern-algorithm/singleton)
 
-## VFX - Shaders
+## VFX - Shaders / Particle System
 
 * [flag animation shader](./_vfx/flag-animation-shader)
 * [lava animation shader](./_vfx/lava-animation-shader)
 * [sky rotation shader](./_vfx/sky-rotation-shader)
+* [smoke particle](./_vfx/smoke-particle)
 
 ## General tips
 
