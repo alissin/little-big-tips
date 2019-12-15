@@ -25,6 +25,7 @@ Suggestions and contributions are very welcome!
 * [flag animation shader](./_vfx/flag-animation-shader)
 * [lava animation shader](./_vfx/lava-animation-shader)
 * [sky rotation shader](./_vfx/sky-rotation-shader)
+* [birds-flight-particle](./birds-flight-particle)
 * [smoke particle](./_vfx/smoke-particle)
 
 ## General tips
