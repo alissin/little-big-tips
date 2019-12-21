@@ -2,9 +2,9 @@
 
 ### birds flight particle
 
-See this VFX in action [here](https://youtu.be/zzY0PzaFKow).
+See this VFX in action [here](https://youtu.be/SWL6ucZqXFw).
 
-> [![birds flight particle](./birds-flight-particle_small.png)](https://youtu.be/zzY0PzaFKow)
+> [![birds flight particle](./birds-flight-particle_small.png)](https://youtu.be/SWL6ucZqXFw)
 
 #### Scenario
 In a beautiful and sunny day, let's see the birds flying!
@@ -59,6 +59,6 @@ particleSystem.Play(); // starts the Particle System
 particleSystem.Stop(); // stops the Particle System
 ```
 
-Again, feel free to see this VFX in action [here](https://youtu.be/zzY0PzaFKow).
+Again, feel free to see this VFX in action [here](https://youtu.be/SWL6ucZqXFw).
 
 More _**Little Big Tips**_? Nice, [let's go](https://github.com/alissin/little-big-tips)!
