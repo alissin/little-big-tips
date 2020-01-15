@@ -5,6 +5,8 @@
 Based on this playable demonstration / prototype: [Goal Dribble](https://simmer.io/@alissin/goal-dribble).<br/>
 Feel free to try the behaviour of this _**Little Big Tip**_.
 
+_Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The textures and the sprites are free assets from the Asset Store.
+
 > ![Goal Dribble](https://raw.githubusercontent.com/alissin/alissin.github.io/master/demonstration-projects/goal-dribble.png)
 
 #### Scenario

@@ -4,6 +4,8 @@
 
 See this VFX in action [here](https://youtu.be/SWL6ucZqXFw).
 
+_Note_: The purpose of this demonstration is to evaluate this VFX. The amazing scenario and the props are free assets from the Asset Store.
+
 > [![birds flight particle](./birds-flight-particle_small.png)](https://youtu.be/SWL6ucZqXFw)
 
 #### Scenario

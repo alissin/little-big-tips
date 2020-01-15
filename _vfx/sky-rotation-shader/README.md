@@ -4,6 +4,8 @@
 
 See this VFX in action [here](https://youtu.be/RaVctatXrXM).
 
+_Note_: The purpose of this demonstration is to evaluate this VFX. The texture is a free asset from the Asset Store.
+
 > [![sky rotation shader](./sky-rotation-shader_small.png)](https://youtu.be/RaVctatXrXM)
 
 #### Scenario

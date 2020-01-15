@@ -4,6 +4,8 @@
 
 See this VFX in action [here](https://youtu.be/EtYslfd8Nog).
 
+_Note_: The purpose of this demonstration is to evaluate this VFX. The texture is a free asset from the Asset Store.
+
 > [![lava animation shader](./lava-animation-shader_small.png)](https://youtu.be/EtYslfd8Nog)
 
 #### Scenario

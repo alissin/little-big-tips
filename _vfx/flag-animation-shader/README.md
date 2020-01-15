@@ -4,6 +4,8 @@
 
 See this VFX in action [here](https://youtu.be/ciC5yaOy-S0).
 
+_Note_: The purpose of this demonstration is to evaluate this VFX. The amazing scenario and the props are free assets from the Asset Store.
+
 > [![flag animation shader](./flag-animation-shader_small.png)](https://youtu.be/ciC5yaOy-S0)
 
 #### Scenario

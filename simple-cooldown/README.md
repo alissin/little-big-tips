@@ -5,6 +5,8 @@
 Based on this playable demonstration / prototype: [Realm Defender](https://simmer.io/@alissin/realm-defender).<br/>
 Feel free to try the behaviour of this _**Little Big Tip**_.
 
+_Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The amazing scenario and the props are free assets from the Asset Store.
+
 > ![Realm Defender](https://raw.githubusercontent.com/alissin/alissin.github.io/master/demonstration-projects/realm-defender.png)
 
 #### Scenario

@@ -4,6 +4,8 @@
 
 See this VFX in action [here](https://youtu.be/2QzYuhXA2_w).
 
+_Note_: The purpose of this demonstration is to evaluate this VFX. The amazing scenario and the props are free assets from the Asset Store.
+
 > [![smoke particle](./smoke-particle_small.png)](https://youtu.be/2QzYuhXA2_w)
 
 #### Scenario
