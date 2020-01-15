@@ -19,6 +19,7 @@ Suggestions and contributions are very welcome!
 * [pathfinder using Breadth First Search](./_pattern-algorithm/breadth-first-search)
 * [object pool pattern](./_pattern-algorithm/object-pool)
 * [singleton pattern](./_pattern-algorithm/singleton)
+* [state pattern](./_pattern-algorithm/state)
 
 ## VFX - Shaders / Particle System
 
