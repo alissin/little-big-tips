@@ -40,7 +40,7 @@ public class Level : MonoBehaviour {
 ```
 
 Define the fields:<br/>
-_Note_: you can find the `Block.cs` script in the repository. Don't forget to attach the `Block.cs` script to the `Block` game object.
+_Note_: You can find the `Block.cs` script in the repository. Don't forget to attach the `Block.cs` script to the `Block` game object.
 
 ```csharp
 [SerializeField]

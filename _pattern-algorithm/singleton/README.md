@@ -20,7 +20,7 @@ It garantees a unique global instance of it and we can access it whenever we nee
 
 #### Solution suggestion
 In this case a singleton instance of a class will keep the reference of the player airplane, more specifically its position and the enemy can check the distance between then to start the attack.<br/>
-_Note_: the scope of this _**Little Big Tip**_ is only the singleton pattern.
+_Note_: The scope of this _**Little Big Tip**_ is only the singleton pattern.
 
 In the hierarchy, create a game object and name it as `Game Manager`:
 

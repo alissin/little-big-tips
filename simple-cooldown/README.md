@@ -14,10 +14,10 @@ We can use only 3 weapons (catapults in this case) at each time. But, a cooldown
 
 #### Solution suggestion
 In this case, it was used a simple `UI Slider` to show this effect on the screen. You can use whatever you want.<br/>
-_Note_: the scope of this _**Little Big Tip**_ is only the cooldown implementation.
+_Note_: The scope of this _**Little Big Tip**_ is only the cooldown implementation.
 
 In the hierarchy, create an `UI Slider` game object:<br/>
-_Note_: an `UI Canvas` and an `EventSystem` game objects will be created automatically. Leave them there.
+_Note_: An `UI Canvas` and an `EventSystem` game objects will be created automatically. Leave them there.
 
 ```
 Hierarchy:

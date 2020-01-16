@@ -14,7 +14,7 @@ When the player airplane is hit, the big impact will shake it all!
 
 #### Solution suggestion
 Actually, in this case, the `Camera` is shaked when something hits the `Player`.<br/>
-_Note_: the scope of this _**Little Big Tip**_ is only the shakking. How to start the shaking after the `Player` be hit, it's up to you.
+_Note_: The scope of this _**Little Big Tip**_ is only the shakking. How to start the shaking after the `Player` be hit, it's up to you.
 
 Create a C# script `Shake.cs` and attach this script to the `Camera` game object:
 

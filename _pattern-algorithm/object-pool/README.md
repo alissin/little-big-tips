@@ -22,7 +22,7 @@ Instead, you can load (instantiate) a pool of objects at the beginning, recycle 
 In this case, in this level, an object pool with size of 5 objects was enough because this level could have a max of 4 warriors at a time walking on the path. Of course, in a level with a long path, you could increase the size of the object pool.
 
 In the hierarchy, create a game object and name it as `Spawn Controller`:
-_Note_: it will be like a container to all instantiated game objects (warriors) that will stay nested (as a child) to this game object.
+_Note_: It will be like a container to all instantiated game objects (warriors) that will stay nested (as a child) to this game object.
 
 ```
 Hierarchy:
