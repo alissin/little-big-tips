@@ -17,6 +17,7 @@ Suggestions and contributions are very welcome!
 ## Pattern / Algorithm
 
 * [pathfinder using Breadth First Search](./_pattern-algorithm/breadth-first-search)
+* [command pattern](./_pattern-algorithm/command)
 * [object pool pattern](./_pattern-algorithm/object-pool)
 * [singleton pattern](./_pattern-algorithm/singleton)
 * [state pattern](./_pattern-algorithm/state)
