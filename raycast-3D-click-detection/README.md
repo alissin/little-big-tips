@@ -77,7 +77,7 @@ void DeployWeapon(Block block) {
 }
 ```
 
-To keep this example simple and focused on the touch / click mechanism, we are just instantiating the weapon game object on hit position. In a real development scenario, I suggest to use a more optimized and performatic technique like [object pool](../_pattern-algorithm/object-pool).
+_Note_: To keep this example simple and focused on the touch / click mechanism, we are just instantiating the weapon game object on hit position. In a real development scenario, I suggest to use a more optimized and performatic technique like [object pool](../_pattern-algorithm/object-pool).
 
 #### Scripts:
 [InputController.cs](./InputController.cs), [Block.cs](./Block.cs)

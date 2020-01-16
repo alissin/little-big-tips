@@ -129,7 +129,7 @@ public void OnHide() {
 }
 ```
 
-To keep this example simple and focused on the object pool mechanism, it's up to you to decide how to get the reference of `Spawn Controller` script. You could use `FindObjectOfType<SpawnController>()` but I suggest the observer pattern, callback mechanism like an `Event` / `Action` or even the [singleton pattern](../singleton) with a global access on this spawner mechanism.
+_Note:_ To keep this example simple and focused on the object pool mechanism, it's up to you to decide how to get the reference of `Spawn Controller` script. You could use `FindObjectOfType<SpawnController>()` but I suggest the observer pattern, callback mechanism like an `Event` / `Action` or even the [singleton pattern](../singleton) with a global access on this spawner mechanism.
 
 #### Scripts:
 [SpawnController.cs](./SpawnController.cs), [Enemy.cs](./Enemy.cs)
