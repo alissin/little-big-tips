@@ -24,7 +24,7 @@ Based on the _finite state machines_ (or _"FSMs"_) concept, this pattern has eac
 
 #### Solution suggestion
 In this case, our enemy skeleton has the following states: Resurrection, Idle, Hit, Walk, Attack and Death.<br/>
-_Note_: To keep this example simple, we will implement only 3 states: Idle, Walk, Attack. After that, you will get the idea and will be able to implement the others states with no problem.
+_Note_: To keep this example simple, we will implement only 3 states: Idle, Walk, Attack. After that, you will get the idea and will be able to implement the other states with no problem.
 
 In the hierarchy, create a game object and name it as `Enemy`:
 
@@ -199,7 +199,7 @@ public class WalkState : IEnemyState {
 }
 ```
 
-As you can see, in this case, I'm using the [singleton pattern](../singleton) to access the `Player` position. With the `NavMesh` system and the `NavMeshAgent`, we can set the direction of the agent and make it move.
+_Note_: In this case, I'm using the [singleton pattern](../singleton) to access the `Player` position. With the `NavMesh` system and the `NavMeshAgent`, we can set the direction of the agent and make it move.
 
 Step 6 - finally, let's implement the `AttackState`:
 

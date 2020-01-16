@@ -27,7 +27,7 @@ _RotationSpeed ("Rotation Speed", Range(1.0, 50.0)) = 10.0
 [Toggle] _IsRotationEnabled ("Is Rotation Enabled?", Float) = 1
 ```
 
-Step 3 - set the `#pragma shader_feature`, bellow the `CGPROGRAM` and anothers `#pragma` lines to use this toggle:
+Step 3 - set the `#pragma shader_feature`, bellow the `CGPROGRAM` and the other `#pragma` lines to use this toggle:
 
 ```
 CGPROGRAM
