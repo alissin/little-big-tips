@@ -21,6 +21,7 @@ Suggestions and contributions are very welcome!
 * [component pattern](./_pattern-algorithm/component)
 * [flyweight pattern](./_pattern-algorithm/flyweight)
 * [object pool pattern](./_pattern-algorithm/object-pool)
+* [observer pattern](./_pattern-algorithm/observer)
 * [singleton pattern](./_pattern-algorithm/singleton)
 * [state pattern](./_pattern-algorithm/state)
 
