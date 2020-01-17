@@ -21,6 +21,8 @@ Sometimes, this type of situation makes us think about to keep the implementatio
 
 But, does it make sense? A unique and big class with hundred lines of code to be used in each object and make it hard do mantain? You and your teammates working at the same class at the same time? I don't think so.
 
+If we have two scenarios, a production and a demonstration / prototyping scenarios and we would like to have different inputs of the player for each situation. Could we use an `if` statement right? It's better not.
+
 #### Solution simplified concept
 It's a good practice to keep the things simple and separeted.
 
@@ -30,7 +32,8 @@ For a team, it has its worth too because each one can work in an individual clas
 
 #### Solution suggestion
 In our case, we could have the following classes (components):<br/>
-`PlayerMovement.cs` -> to deal with the Player's movement<br/>
+`PlayerMovement.cs` -> to deal with the Player's movement (production scenario)<br/>
+`DemostrationPlayerMovement.cs` -> to deal with the Player's movement (demonstration / prototyping scenario)<br/>
 `EnemyMovement.cs` -> to deal with the Enemy's movement<br/>
 `Attackable.cs` -> to deal with the attack of the both<br/>
 `CollisionHandler.cs` -> to deal with the collision of the attacks<br/>
@@ -173,6 +176,48 @@ public class EnemyDamageable : MonoBehaviour, IDamageable {
 ```
 
 Cool! Now, go ahead to see it in action, add a `Rigidbody` to the `Player`, uncheck the `Use Gravity`, run the game and move the `Player` close to the `Enemy` to simulate the hit and you can see the both taking damage.
+
+Until here, our `Player` has already a lot of organized and separated components that we are really proud of. But, let's finish this _**Little Big Tip**_ if style.
+
+Create a C# script `DemonstrationPlayerMovement.cs`:
+
+```csharp
+public class DemonstrationPlayerMovement : MonoBehaviour {
+
+    void Update() {
+        // TODO: impl. the Player Demonstration movement
+        // inputs for demonstration / prototyping scenario
+    }
+}
+```
+
+Step 9 - remove the `PlayerMovement.cs` from the `Player` game object.
+
+Step 10 - in your `GameManager.cs` or wherever you have a reference of the `Player` game object, you could do something like this:
+
+```csharp
+public class GameManager : MonoBehaviour {
+
+    ...
+
+    [SerializeField]
+    GameObject _player;
+
+    [Header("Debug key")]
+    [SerializeField]
+    bool _isDemonstration = false;
+
+    void Start() {
+        if (Debug.isDebugBuild && _isDemonstration) {
+            _test.AddComponent<DemonstrationPlayerMovement>();
+        } else {
+            _test.AddComponent<PlayerMovement>();
+        }
+    }
+
+    ...
+}
+```
 
 #### Scripts:
 [PlayerMovement.cs](./PlayerMovement.cs), [EnemyMovement.cs](./EnemyMovement.cs), [IDamageable.cs](./IDamageable.cs), [IAttackable.cs](./IAttackable.cs), [Attackable.cs](./Attackable.cs), [CollisionHandler.cs](./CollisionHandler.cs), [PlayerDamageable.cs](./PlayerDamageable.cs), [EnemyDamageable.cs](./EnemyDamageable.cs)
