@@ -144,8 +144,8 @@ public class PlayerDamageable : MonoBehaviour, IDamageable {
     float _health = 50.0f;
 
     public void OnTakeDamage(float amount) {
-        if (health >= Mathf.Epsilon) {
-            health -= amount;
+        if (_health >= Mathf.Epsilon) {
+            _health -= amount;
         } else {
             // TODO: death
         }
@@ -163,10 +163,10 @@ public class EnemyDamageable : MonoBehaviour, IDamageable {
     float _health = 10.0f;
 
     public void OnTakeDamage(float amount) {
-        if (armor >= Mathf.Epsilon) {
-            armor -= amount;
+        if (_armor >= Mathf.Epsilon) {
+            _armor -= amount;
         } else if (health >= Mathf.Epsilon) {
-            health -= amount;
+            _health -= amount;
         } else {
             // TODO: death
         }

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerDamageable : MonoBehaviour, IDamageable {
 
-    float health = 50.0f;
+    float _health = 50.0f;
 
     public void OnTakeDamage(float amount) {
-        if (health >= Mathf.Epsilon) {
-            health -= amount;
+        if (_health >= Mathf.Epsilon) {
+            _health -= amount;
         } else {
             // TODO: death
         }

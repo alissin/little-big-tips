@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class EnemyDamageable : MonoBehaviour, IDamageable {
 
-    float armor = 5.0f;
-    float health = 10.0f;
+    float _armor = 5.0f;
+    float _health = 10.0f;
 
     public void OnTakeDamage(float amount) {
-        if (armor >= Mathf.Epsilon) {
-            armor -= amount;
+        if (_armor >= Mathf.Epsilon) {
+            _armor -= amount;
         } else if (health >= Mathf.Epsilon) {
-            health -= amount;
+            _health -= amount;
         } else {
             // TODO: death
         }
