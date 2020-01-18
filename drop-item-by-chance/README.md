@@ -79,7 +79,7 @@ Hierarchy:
 ```
 
 Step 4 - create 2 items from our `ItemSO` and name them as `GrenadeSO` and `HealthPotionSO`.<br/>
-_Note:_ On project folder, mouse right click on `ItemSO`.
+_Note:_ On project folder, mouse right click on `ItemSO` > Create > Item.
 
 Step 5 - via inspector, attach these new 2 items to the respectively fields on the `Grenade` and `Health Potion` game objects.
 
