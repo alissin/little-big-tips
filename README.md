@@ -36,6 +36,7 @@ Suggestions and contributions are very welcome!
 ## General tips
 
 * [airplane movement](./airplane-movement)
+* [drop item by chance](./drop-item-by-chance)
 * [explode the rocket](./explode-the-rocket)
 * [land the rocket](./land-the-rocket)
 * [raycast 3D click detection](./raycast-3D-click-detection)
