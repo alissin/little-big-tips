@@ -67,7 +67,7 @@ public string description;
 
 As you can see, now we can create the "containers" of each item type and later attach it to each game object.
 
-Step 2 - let's create them: in Unity, in the project folder, find the `ItemSO.cs` script and click with the mouse right button on it. Name it as `Health Potion`.
+Step 2 - let's create them: in Unity, in the project folder, find the `ItemSO.cs` script and click with the mouse right button on it. Click on "Create" and then "Item". Name it as `Health Potion`.
 
 Step 3 - do the process again. Now, name the new file as `Grenade`.
 
