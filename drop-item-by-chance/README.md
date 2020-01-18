@@ -105,7 +105,7 @@ GrenadeSO:
 
 HealthPotionSO:
 - Prefab: Health Potion (prefab)
-- Value: 1
+- Value: 10
 - Drop Chance: 0.4
 - Description: Health Potion
 ```
