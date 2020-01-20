@@ -207,6 +207,7 @@ Step 6 - finally, let's implement the `AttackState`:
 public class AttackState : IEnemyState {
 
     EnemyControllerState _enemyController;
+    float _rotationSpeed = 5.0f;
 
     public void Start(EnemyControllerState enemyController) {
         _enemyController = enemyController;
@@ -214,10 +215,13 @@ public class AttackState : IEnemyState {
     }
 
     public IEnemyState Update() {
-        // TODO: get access to the Player transform
-        _enemyController.transform.LookAt(GameManager.Instance.Player.transform);
-        // keep the X and Z rotations unchanged
-        _enemyController.transform.eulerAngles = new Vector3(0, _enemyController.transform.eulerAngles.y, 0);
+        // to face the Player smoothly on attack:
+
+        // TODO: get access to the Player position
+        Vector3 attackDirection = (GameManager.Instance.Player.transform.position - _skeletonController.transform.position).normalized;
+        // in this case, we don't want to affect the Y rotation, we only care about the direction from X and Z
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(attackDirection.x, 0, attackDirection.z));
+        _skeletonController.transform.rotation = Quaternion.Slerp(_skeletonController.transform.rotation, lookRotation, Time.deltaTime * _rotationSpeed);
 
         // in this case, I'm using the Blend Tree to control the animations of the Enemy. Check if the animation is NOT the Attack animation
         if (_enemyController.animator.GetCurrentAnimatorStateInfo(0).IsName("Blend Tree")) {
