@@ -1,6 +1,6 @@
 ## _**Little Big Tips**_ ![Joystick](https://raw.githubusercontent.com/alissin/alissin.github.io/master/images/joystick.png) > General tips
 
-### raycast 3D click detection
+### raycast 3D click / touch detection
 
 Based on this playable demonstration / prototype: [Realm Defender](https://simmer.io/@alissin/realm-defender).<br/>
 Feel free to try the behaviour of this _**Little Big Tip**_.

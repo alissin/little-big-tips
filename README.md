@@ -40,7 +40,7 @@ Suggestions and contributions are very welcome!
 * [explode the rocket](./explode-the-rocket)
 * [hit damage calculation](./hit-damage-calculation)
 * [land the rocket](./land-the-rocket)
-* [raycast 3D click detection](./raycast-3D-click-detection)
+* [raycast 3D click / touch detection](./raycast-3D-click-detection)
 * [raycast patrol detection](./raycast-patrol-detection)
 * [roll the ball](./roll-the-ball)
 * [simple cooldown](./simple-cooldown)
