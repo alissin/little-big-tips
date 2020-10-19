@@ -4,7 +4,7 @@
 
 # Welcome to _**Little Big Tips**_! ![Joystick](https://raw.githubusercontent.com/alissin/alissin.github.io/master/images/joystick.png)
 
-This repository is dedicated to gameplay developers in Unity. These _**Little Big Tips**_ could help in the day-by-day challenges situations and save some time!
+This repository is dedicated to gameplay programmers / developers in Unity. These _**Little Big Tips**_ could help in the day-by-day challenges situations and save some time!
 
 Here you can find code snippets of gameplay mechanics, design-patterns, algorithms, shaders, etc.
 
