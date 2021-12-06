@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu(fileName = "ItemSO", menuName = "Item")]
-public class ItemSO : ScriptableObject {
-
+public class ItemSO : ScriptableObject
+{
     public GameObject prefab;
     public float value;
     public float dropChance;

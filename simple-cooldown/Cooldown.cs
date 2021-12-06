@@ -1,36 +1,41 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Cooldown : MonoBehaviour {
-
+public class Cooldown : MonoBehaviour
+{
     [SerializeField]
-    float _cooldown = 5.0f;
+    float cooldown = 5.0f;
 
-    Slider _cooldownSlider;
+    Slider cooldownSlider;
 
-    int _availableItems = 3;
-    int _maxItems = 3;
-    bool _isCooldownOn = false;
+    int availableItems = 3;
+    int maxItems = 3;
+    bool isCooldownOn = false;
 
-    void Start() {
-        _cooldownSlider = GetComponent<Slider>();
+    void Start()
+    {
+        cooldownSlider = GetComponent<Slider>();
     }
 
-    void Update() {
-        if (_isCooldownOn) {
-            _cooldownSlider.value += Time.deltaTime / _cooldown;
+    void Update()
+    {
+        if (isCooldownOn)
+        {
+            cooldownSlider.value += Time.deltaTime / cooldown;
 
-            if (_cooldownSlider.value >= _cooldownSlider.maxValue) {
-                _availableItems++;
-                _cooldownSlider.value = 0.0f;
+            if (cooldownSlider.value >= cooldownSlider.maxValue)
+            {
+                availableItems++;
+                cooldownSlider.value = 0.0f;
             }
 
-            _isCooldownOn = _availableItems < _maxItems;
+            isCooldownOn = availableItems < maxItems;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            _availableItems = 0;
-            _isCooldownOn = true;
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            availableItems = 0;
+            isCooldownOn = true;
         }
     }
 }

@@ -1,16 +1,10 @@
-## _**Little Big Tips**_ ![Joystick](https://raw.githubusercontent.com/alissin/alissin.github.io/master/images/joystick.png) > General tips
+## _**Little Big Tips**_ ![Joystick](https://raw.githubusercontent.com/alissin/alissin.github.io/master/images/joystick.png) > General tips > roll the ball
 
-### roll the ball
-
-Based on this playable demonstration / prototype: [Goal Dribble](https://simmer.io/@alissin/goal-dribble).<br/>
-Feel free to try the behaviour of this _**Little Big Tip**_.
+Feel free to try this behaviour on the playable demonstration / prototype: [Goal Dribble](https://simmer.io/@alissin/goal-dribble).
 
 _Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The textures and the sprites are free assets from the Asset Store.
 
-> ![Goal Dribble](https://raw.githubusercontent.com/alissin/alissin.github.io/master/demonstration-projects/goal-dribble.png)
-
-#### Scenario
-If you are inside a soccer field, what really matters, is the goal! But, to reach it, we need some dribbles.
+> ![Goal Dribble](./../z_images/goal_dribble/roll-the-ball.png)
 
 #### Problem description
 In this simple "rolling the ball" mechanic, a.k.a. dribble in this game, how to make the ball rotates around something and on the ground at the same time?
@@ -30,7 +24,8 @@ Make sure to reset the transform of the `Player` game object and then, set the s
 Create a C# script `Player.cs` and attach this script to the `Player` game object:
 
 ```csharp
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour
+{
     ...
 ```
 
@@ -38,33 +33,35 @@ Define the fields:
 
 ```csharp
 [SerializeField]
-float _moveSpeed = 200.0f;
+float moveSpeed = 200.0f;
 
 [SerializeField]
-float _rotationFactor = 0.015f;
+float rotationFactor = 0.015f;
 
-float _lh;
+float lh;
 ```
 
-Step 1 - let's start our smart dribble making the ball to rotate around something. In this case, the center point of the scene (`Vector3.zero`):<br/>
+Let's start our smart dribble making the ball to rotate around something. In this case, the center point of the scene (`Vector3.zero`):<br/>
 _Note:_ that's why we set the `Player` game object Z position to 3.
 
 ```csharp
-void Update () {
-    _lh = Input.GetAxis("Horizontal");
+void Update ()
+{
+    lh = Input.GetAxis("Horizontal");
 
-    transform.RotateAround(Vector3.zero, Vector3.up, _lh * Time.deltaTime * _moveSpeed);
+    transform.RotateAround(Vector3.zero, Vector3.up, lh * Time.deltaTime * moveSpeed);
 }
 ```
 
-Step 2 - now, let's roll the ball to have a stylish dribble:
+Now, let's roll the ball to have a stylish dribble:
 
 ```csharp
-void Update () {
+void Update ()
+{
     ...
 
-    float rotationFactor = _rotationFactor * _moveSpeed;
-    transform.Rotate(Vector3.forward, -_lh * Time.deltaTime * _moveSpeed * rotationFactor);
+    float rotation = rotationFactor * moveSpeed;
+    transform.Rotate(Vector3.forward, -lh * Time.deltaTime * moveSpeed * rotation);
 }
 ```
 

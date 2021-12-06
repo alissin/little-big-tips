@@ -1,33 +1,39 @@
 using UnityEngine;
 
-public class Shake : MonoBehaviour {
-
+public class Shake : MonoBehaviour
+{
     [SerializeField]
     [Range(0.1f, 0.5f)]
-    float _range = 0.2f;
+    float range = 0.2f;
 
     [SerializeField]
-    bool _isShaking = false;
+    bool isShaking = false;
 
-    Vector3 _lastPos;
-    bool _hasLastPosHeld = false;
+    Vector3 lastPos;
+    bool hasLastPosHeld = false;
 
-    void Update() {
-        if (_isShaking) {
-            if (!_hasLastPosHeld) {
-                _lastPos = transform.position;
-                _hasLastPosHeld = true;
+    void Update()
+    {
+        if (isShaking)
+        {
+            if (!hasLastPosHeld)
+            {
+                lastPos = transform.position;
+                hasLastPosHeld = true;
             }
 
-            float xPos = _lastPos.x + Random.Range(-_range, _range);
-            float yPos = _lastPos.y + Random.Range(-_range, _range);
-            float zPos = _lastPos.z + Random.Range(-_range, _range);
+            float xPos = lastPos.x + Random.Range(-range, range);
+            float yPos = lastPos.y + Random.Range(-range, range);
+            float zPos = lastPos.z + Random.Range(-range, range);
 
             transform.position = new Vector3(xPos, yPos, zPos);
-        } else {
-            if (_hasLastPosHeld) {
-                transform.position = _lastPos;
-                _hasLastPosHeld = false;
+        }
+        else
+        {
+            if (hasLastPosHeld)
+            {
+                transform.position = lastPos;
+                hasLastPosHeld = false;
             }
         }
     }

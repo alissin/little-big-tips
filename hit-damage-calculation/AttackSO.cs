@@ -1,16 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu(fileName = "AttackSO", menuName = "Attack")]
-public class AttackSO : ScriptableObject {
-
-    public enum Type {
-        Body, Head
+public class AttackSO : ScriptableObject
+{
+    public enum Type
+    {
+        Body,
+        Head
     }
 
-    public enum Phase {
-        Armor, Health
+    public enum Phase
+    {
+        Armor,
+        Health
     }
 
     public float baseDamage;
@@ -23,14 +25,16 @@ public class AttackSO : ScriptableObject {
     public float damageToArmorFactor;
     public float damageToHealthFactor;
 
-    public float CalculateDamage(Type type, Phase phase) {
+    public float CalculateDamage(Type type, Phase phase)
+    {
         float phaseDamage = CalculatePhaseDamage(phase);
 
         bool isCriticalHit = IsCriticalHit;
         float bodyDamage = CalculateBodyDamage(isCriticalHit);
 
         float finalDamage = 0.0f;
-        switch (type) {
+        switch (type)
+        {
             case Type.Body:
                 finalDamage = bodyDamage + phaseDamage;
                 break;
@@ -43,21 +47,26 @@ public class AttackSO : ScriptableObject {
         return finalDamage;
     }
 
-    bool IsCriticalHit {
+    bool IsCriticalHit
+    {
         get => Random.value <= criticalHitChance;
     }
 
-    float CalculateBodyDamage(bool isCriticalHit) {
+    float CalculateBodyDamage(bool isCriticalHit)
+    {
         return baseDamage + (isCriticalHit ? baseDamage * criticalHitDamageFactor : 0);
     }
 
-    float CalculateHeadDamage(float bodyDamage) {
+    float CalculateHeadDamage(float bodyDamage)
+    {
         return bodyDamage + (baseDamage * headDamageFactor);
     }
 
-    float CalculatePhaseDamage(Phase phase) {
+    float CalculatePhaseDamage(Phase phase)
+    {
         float phaseDamage = 0.0f;
-        switch (phase) {
+        switch (phase)
+        {
             case Phase.Armor:
                 phaseDamage = baseDamage * damageToArmorFactor;
                 break;
@@ -66,6 +75,7 @@ public class AttackSO : ScriptableObject {
                 phaseDamage = baseDamage * damageToHealthFactor;
                 break;
         }
+
         return phaseDamage;
     }
 }

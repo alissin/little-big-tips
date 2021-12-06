@@ -1,12 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class CollisionType : MonoBehaviour {
-
+public class CollisionType : MonoBehaviour
+{
     [SerializeField]
-    AttackSO.Type _type;
-    public AttackSO.Type Type {
-        get => _type;
+    AttackSO.Type type;
+
+    public AttackSO.Type Type
+    {
+        get => type;
     }
 }

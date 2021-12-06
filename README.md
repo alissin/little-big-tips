@@ -6,9 +6,9 @@
 
 This repository is dedicated to gameplay programmers / developers in Unity. These _**Little Big Tips**_ could help in the day-by-day challenges situations and save some time!
 
-Here you can find code snippets of gameplay mechanics, design-patterns, algorithms, shaders, etc.
+Here you can find code snippets of gameplay mechanics, design-patterns, algorithms, shaders and more.
 
-The _**Little Big Tips**_ are based on some game project prototypes that can be seen in action. Yes, you can play the prototypes online, [go ahead](https://simmer.io/@alissin)!
+Most of the _**Little Big Tips**_ are based on these playable demonstrations that can be seen in action [here](https://simmer.io/@alissin).
 
 Suggestions and contributions are very welcome!
 

@@ -1,27 +1,30 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class ItemDropManager : MonoBehaviour {
-
+public class ItemDropManager : MonoBehaviour
+{
     [SerializeField]
-    ItemSO[] _itemsSO;
+    ItemSO[] itemsSO;
 
-    float _totalDropChance;
+    float totalDropChance;
 
-    void Start() {
-        foreach (var item in _itemsSO) {
-            _totalDropChance += item.dropChance;
+    void Start()
+    {
+        foreach (var item in itemsSO)
+        {
+            totalDropChance += item.dropChance;
         }
     }
 
-    public void DropItem(Vector3 dropPosition) {
-        float random = Mathf.Round(Random.Range(0, _totalDropChance) * 10.0f) / 10.0f;
+    public void DropItem(Vector3 dropPosition)
+    {
+        float random = Mathf.Round(Random.Range(0, totalDropChance) * 10.0f) / 10.0f;
 
         float whichItem = 0.0f;
-        foreach (var item in _itemsSO) {
+        foreach (var item in itemsSO)
+        {
             whichItem += item.dropChance;
-            if (whichItem >= random) {
+            if (whichItem >= random)
+            {
                 Instantiate(item.prefab, dropPosition, item.prefab.transform.rotation);
                 break;
             }

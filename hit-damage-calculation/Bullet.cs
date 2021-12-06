@@ -1,20 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Bullet : MonoBehaviour {
-
+public class Bullet : MonoBehaviour
+{
     [SerializeField]
-    AttackSO _attackSO;
+    AttackSO attackSO;
 
-    void OnCollisionEnter(Collision collision) {
+    void OnCollisionEnter(Collision collision)
+    {
         CollisionType collisionType = collision.collider.gameObject.GetComponent<CollisionType>();
 
-        if (collisionType != null) {
+        if (collisionType != null)
+        {
             IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
 
-            if (damageable != null) {
-                damageable.OnTakeDamage(_attackSO, collisionType.Type);
+            if (damageable != null)
+            {
+                damageable.OnTakeDamage(attackSO, collisionType.Type);
             }
         }
     }

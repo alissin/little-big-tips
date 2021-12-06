@@ -1,16 +1,18 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour {
-
+public class Player : MonoBehaviour
+{
     [SerializeField]
-    GameObject _breakablePlayerPrefab;
+    GameObject breakablePlayerPrefab;
 
-    void OnCollisionEnter(Collision collision) {
+    void OnCollisionEnter(Collision collision)
+    {
         Explode();
     }
 
-    void Explode() {
-        Instantiate(_breakablePlayerPrefab, transform.position, transform.rotation);
+    void Explode()
+    {
+        Instantiate(breakablePlayerPrefab, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 }

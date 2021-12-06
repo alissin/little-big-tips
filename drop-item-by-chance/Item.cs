@@ -1,15 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Item : MonoBehaviour {
-
+public class Item : MonoBehaviour
+{
     [SerializeField]
-    ItemSO _itemSO;
+    ItemSO itemSO;
 
-    float _currentValue;
+    float currentValue;
 
-    void Start() {
-        _currentValue = _itemSO.value;
+    void Start()
+    {
+        currentValue = itemSO.value;
     }
 }

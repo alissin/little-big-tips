@@ -1,21 +1,22 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour
+{
+    [SerializeField]
+    float moveSpeed = 200.0f;
 
     [SerializeField]
-    float _moveSpeed = 200.0f;
+    float rotationFactor = 0.015f;
 
-    [SerializeField]
-    float _rotationFactor = 0.015f;
+    float lh;
 
-    float _lh;
+    void Update()
+    {
+        lh = Input.GetAxis("Horizontal");
 
-    void Update () {
-        _lh = Input.GetAxis("Horizontal");
+        transform.RotateAround(Vector3.zero, Vector3.up, lh * Time.deltaTime * moveSpeed);
 
-        transform.RotateAround(Vector3.zero, Vector3.up, _lh * Time.deltaTime * _moveSpeed);
-
-        float rotationFactor = _rotationFactor * _moveSpeed;
-        transform.Rotate(Vector3.forward, -_lh * Time.deltaTime * _moveSpeed * rotationFactor);
+        float rotation = rotationFactor * moveSpeed;
+        transform.Rotate(Vector3.forward, -lh * Time.deltaTime * moveSpeed * rotation);
     }
 }

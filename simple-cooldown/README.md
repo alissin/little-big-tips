@@ -1,16 +1,13 @@
-## _**Little Big Tips**_ ![Joystick](https://raw.githubusercontent.com/alissin/alissin.github.io/master/images/joystick.png) > General tips
+## _**Little Big Tips**_ ![Joystick](https://raw.githubusercontent.com/alissin/alissin.github.io/master/images/joystick.png) > General tips > simple cooldown
 
-### simple cooldown
+Feel free to try this behaviour on the playable demonstration / prototype: [Realm Defender](https://simmer.io/@alissin/realm-defender).
 
-Based on this playable demonstration / prototype: [Realm Defender](https://simmer.io/@alissin/realm-defender).<br/>
-Feel free to try the behaviour of this _**Little Big Tip**_.
+_Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The scenario and the props are free assets from the Asset Store.
 
-_Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The amazing scenario and the props are free assets from the Asset Store.
+> ![Realm Defender](./../z_images/realm_defender/realm-defender.png)
 
-> ![Realm Defender](https://raw.githubusercontent.com/alissin/alissin.github.io/master/demonstration-projects/realm-defender.png)
-
-#### Scenario
-We can use only 3 weapons (catapults in this case) at each time. But, a cooldown system to reload theses weapons could bring a nice challenge to the player.
+#### Problem description
+We can use only 3 weapons (catapults in this case) at each time. So, a cooldown system to reload theses weapons will be used to bring a challenge to the player.
 
 #### Solution suggestion
 In this case, it was used a simple `UI Slider` to show this effect on the screen. You can use whatever you want.<br/>
@@ -31,7 +28,8 @@ Place the `Slider` wherever you want on the screen. Change the `Max Value` to 10
 Create a C# script `Cooldown.cs` and attach this script to the `Slider` game object:
 
 ```csharp
-public class Cooldown : MonoBehaviour {
+public class Cooldown : MonoBehaviour
+{
     ...
 ```
 
@@ -39,13 +37,13 @@ Define the fields:
 
 ```csharp
 [SerializeField]
-float _cooldown = 5.0f;
+float cooldown = 5.0f;
 
-Slider _cooldownSlider;
+Slider cooldownSlider;
 
-int _availableItems = 3;
+int availableItems = 3;
 int _maxItems = 3;
-bool _isCooldownOn = false;
+bool isCooldownOn = false;
 ```
 
 Don't forget to use the `UnityEngine.UI` namespace:
@@ -54,41 +52,47 @@ Don't forget to use the `UnityEngine.UI` namespace:
 using UnityEngine.UI;
 ```
 
-Step 1 - get the `Slider` component:
+Get the `Slider` component:
 
 ```csharp
-void Start() {
-    _cooldownSlider = GetComponent<Slider>();
+void Start()
+{
+    cooldownSlider = GetComponent<Slider>();
 }
 ```
 
-Step 2 - as you can see, we have 3 items set on `_maxItems` field and the cooldown system will run until all of them be reloaded. `_cooldown` field is set to 5.0f, that is, 5 seconds to reload each item:
+As you can see, we have 3 items set on `maxItems` field and the cooldown system will run until all of them are reloaded. The `cooldown` field is set to 5.0f, that means 5 seconds to reload each item:
 
 ```csharp
-void Update() {
-    if (_isCooldownOn) {
-        _cooldownSlider.value += Time.deltaTime / _cooldown;
+void Update()
+{
+    if (isCooldownOn)
+    {
+        cooldownSlider.value += Time.deltaTime / cooldown;
 
-        if (_cooldownSlider.value >= _cooldownSlider.maxValue) {
-            _availableItems++;
-            _cooldownSlider.value = 0.0f;
+        if (cooldownSlider.value >= cooldownSlider.maxValue)
+        {
+            availableItems++;
+            cooldownSlider.value = 0.0f;
         }
 
-        _isCooldownOn = _availableItems < _maxItems;
+        isCooldownOn = availableItems < maxItems;
     }
 }
 ```
 
-Step 3 - now, let's simulate when the player uses the items:<br/>
+Let's simulate when the player uses the items:<br/>
 _Note:_ this will use the 3 items at the same time, just to see the cooldown in action.
 
 ```csharp
-void Update() {
+void Update()
+{
     ...
 
-    if (Input.GetKeyDown(KeyCode.Space)) {
-        _availableItems = 0;
-        _isCooldownOn = true;
+    if (Input.GetKeyDown(KeyCode.Space))
+    {
+        availableItems = 0;
+        isCooldownOn = true;
     }
 }
 ```
