@@ -91,7 +91,7 @@ void RaycastTarget(Vector3 rayDirection, float distance)
     Ray ray = new Ray(transform.position, rayDirection);
     Debug.DrawRay(ray.origin, ray.direction * distance, Color.yellow);
 
-    if (Physics.Raycast(ray, out _hit, distance, _layerMaskExceptEnemy))
+    if (Physics.Raycast(ray, out hit, distance, layerMaskExceptEnemy))
     {
         // TODO: impl. the Player was seen
     }

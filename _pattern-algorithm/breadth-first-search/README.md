@@ -1,22 +1,16 @@
-## _**Little Big Tips**_ ![Joystick](https://raw.githubusercontent.com/alissin/alissin.github.io/master/images/joystick.png) > Pattern / Algorithm
+## _**Little Big Tips**_ ![Joystick](https://raw.githubusercontent.com/alissin/alissin.github.io/master/images/joystick.png) > Pattern / Algorithm > pathfinder using Breadth First Search
 
-### pathfinder using Breadth First Search
+Feel free to try this behaviour on the playable demonstration / prototype: [Realm Defender](https://simmer.io/@alissin/realm-defender).
 
-Based on this playable demonstration / prototype: [Realm Defender](https://simmer.io/@alissin/realm-defender).<br/>
-Feel free to try the behaviour of this _**Little Big Tip**_.
+_Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The scenario and the props are free assets from the Asset Store.
 
-_Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The amazing scenario and the props are free assets from the Asset Store.
-
-> ![Realm Defender](https://raw.githubusercontent.com/alissin/alissin.github.io/master/demonstration-projects/realm-defender.png)
-
-#### Scenario
-Strong enemy warriors are spawning from enemy base (red castle) and going to attack the player base (blue castle).
+> ![Realm Defender](./../../z_images/realm_defender/realm-defender.png)
 
 #### Problem description
-Find the shortest path between start point (red castle) and end point (blue castle).
+We need to find the shortest path between the start point (red castle) and end point (blue castle).
 
 #### Solution simplified concept
-The technique of Breadth First Search consists in, given a start point, it looks for the neighbour points (blocks in this case), it sets on each of these blocks where the search comes from (I like to refer this as "tail") and finally, once the algorithm finds the end point, it reads each block backwards (starting with the end point), checks the "tail" and creates a (reverse) list with it.
+The technique of _Breadth First Search_ consists in, given a start point, it looks for the neighbour points (blocks in this case), it sets on each of these blocks where the search comes from (I like to refer this as "tail") and finally, once the algorithm finds the end point, it reads each block backwards (starting with the end point), checks the "tail" and creates a (reverse) list with it.
 
 #### Solution suggestion
 In this case, the path will not change in runtime. When the level starts, the shortest path should already be defined and the enemy warriors should have access to it.
@@ -32,10 +26,11 @@ Hierarchy:
 -- Block N
 ```
 
- Create a C# script `Level.cs` and attach this script to the `Level` game object:
+Create a C# script `Level.cs` and attach this script to the `Level` game object:
 
 ```csharp
-public class Level : MonoBehaviour {
+public class Level : MonoBehaviour
+{
     ...
 ```
 
@@ -44,90 +39,96 @@ _Note_: You can find the `Block.cs` script in the repository. Don't forget to at
 
 ```csharp
 [SerializeField]
-Block _startBlock;
+Block startBlock;
 
 [SerializeField]
-Block _endBlock;
+Block endBlock;
 
-Dictionary<Vector2Int, Block> _gridDic = new Dictionary<Vector2Int, Block>();
-Queue<Block> _queue = new Queue<Block>();
+Dictionary<Vector2Int, Block> gridDic = new Dictionary<Vector2Int, Block>();
+Queue<Block> queue = new Queue<Block>();
 
-Block[] _shortestPathBlocks;
+Block[] shortestPathBlocks;
 
 // the order directions of the search, you can change it if you want
-Vector2Int[] _directions = {
-    Vector2Int.up, Vector2Int.right, Vector2Int.down, Vector2Int.left
-};
+Vector2Int[] directions = { Vector2Int.up, Vector2Int.right, Vector2Int.down, Vector2Int.left };
 ```
 
-When your level is loaded, start the process.
-
-Step 1 - get all blocks in your level and put it in the `Dictionary`:
+When your level is loaded, start the process. Get all blocks in your level and put it in the `Dictionary`:
 
 ```csharp
-void LoadLevelBlocks() {
+void LoadLevelBlocks()
+{
     Block[] levelBlocks = transform.GetComponentsInChildren<Block>();
 
-    foreach (var item in levelBlocks) {
+    foreach (var item in levelBlocks)
+    {
         Vector2Int gridPos = item.GetGridPosition();
-        if (!_gridDic.ContainsKey(gridPos)) {
-            _gridDic.Add(gridPos, item);
+        if (!gridDic.ContainsKey(gridPos)) 
+        {
+            gridDic.Add(gridPos, item);
         }
     }
 }
 ```
 
-Step 2 - find the neighbour blocks, given the center search point. The `Queue` and the `Dictionary` will help to organize it:
+Find the neighbour blocks, given the center search point. The `Queue` and the `Dictionary` will help to organize it:
 
 ```csharp
-void FindPathBlocksBFS() {
-    _startBlock.IsEnqueued = true;
-    _queue.Enqueue(_startBlock);
+void FindPathBlocksBFS()
+{
+    startBlock.IsEnqueued = true;
+    queue.Enqueue(startBlock);
 
-    while (_queue.Count > 0) {
-        var centerSearchBlock = _queue.Dequeue();
+    while (queue.Count > 0)
+    {
+        var centerSearchBlock = queue.Dequeue();
 
         // check if the algorithm already found the end point
-        if (centerSearchBlock.GetGridPosition() == _endBlock.GetGridPosition()) {
-            break;
-        }
+        if (centerSearchBlock.GetGridPosition() == endBlock.GetGridPosition()) break;
 
         FindNeighbourBlocks(centerSearchBlock);
     }
 }
 
-void FindNeighbourBlocks(Block centerSearchBlock) {
-    foreach (var item in _directions) {
+void FindNeighbourBlocks(Block centerSearchBlock)
+{
+    foreach (var item in directions)
+    {
         Vector2Int neighbourPos = centerSearchBlock.GetGridPosition() + item;
 
         Block neighbourBlock;
-        if (_gridDic.TryGetValue(neighbourPos, out neighbourBlock)) {
-            if (!neighbourBlock.IsEnqueued) {
+        if (gridDic.TryGetValue(neighbourPos, out neighbourBlock))
+        {
+            if (!neighbourBlock.IsEnqueued)
+            {
                 // set the tail (where the search comes from)
                 neighbourBlock.Tail = centerSearchBlock;
                 // enqueue the block to be able to read it (previous method)
                 neighbourBlock.IsEnqueued = true;
-                _queue.Enqueue(neighbourBlock);
+                queue.Enqueue(neighbourBlock);
             }
         }
     }
 }
 ```
 
-Step 3 - finally, let's create our shortest path:
+Finally, let's create our shortest path:
 
 ```csharp
-void BuildShortestPathBlocks() {
+void BuildShortestPathBlocks()
+{
     // create a temporary reverse list and starts it with the end point
     List<Block> reversePathBlocks = new List<Block>();
-    reversePathBlocks.Add(_endBlock);
+    reversePathBlocks.Add(endBlock);
 
     // after that, put every tail in the list and check until it finds the start point
-    Block previousBlock = _endBlock.Tail;
-    while (previousBlock != null) {
+    Block previousBlock = endBlock.Tail;
+    while (previousBlock != null)
+    {
         reversePathBlocks.Add(previousBlock);
 
-        if (previousBlock.GetGridPosition() == _startBlock.GetGridPosition()) {
+        if (previousBlock.GetGridPosition() == startBlock.GetGridPosition())
+        {
             break;
         }
 
@@ -135,9 +136,10 @@ void BuildShortestPathBlocks() {
     }
 
     // set the size of the final array based on reverse list size, fill it in a reverse mode and here we go: our shortest path blocks!
-    _shortestPathBlocks = new Block[reversePathBlocks.Count];
-    for (int i = reversePathBlocks.Count - 1; i >= 0; i--) {
-        _shortestPathBlocks[reversePathBlocks.Count - 1 - i] = reversePathBlocks[i];
+    shortestPathBlocks = new Block[reversePathBlocks.Count];
+    for (int i = reversePathBlocks.Count - 1; i >= 0; i--)
+    {
+        shortestPathBlocks[reversePathBlocks.Count - 1 - i] = reversePathBlocks[i];
     }
 }
 ```

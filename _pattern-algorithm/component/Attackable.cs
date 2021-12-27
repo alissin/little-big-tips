@@ -1,13 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Attackable : MonoBehaviour, IAttackable {
-
+public class Attackable : MonoBehaviour, IAttackable
+{
     [SerializeField]
-    AttackSO _attack;
+    AttackSO attack;
 
-    public void OnAttack(IDamageable damageable) {
-        damageable.OnTakeDamage(_attack.baseDamage);
+    public void OnAttack(IDamageable damageable)
+    {
+        damageable.OnTakeDamage(attack.baseDamage);
     }
 }

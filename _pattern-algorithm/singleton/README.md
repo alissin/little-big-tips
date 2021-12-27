@@ -1,22 +1,16 @@
-## _**Little Big Tips**_ ![Joystick](https://raw.githubusercontent.com/alissin/alissin.github.io/master/images/joystick.png) > Pattern / Algorithm
+## _**Little Big Tips**_ ![Joystick](https://raw.githubusercontent.com/alissin/alissin.github.io/master/images/joystick.png) > Pattern / Algorithm > singleton pattern
 
-### singleton pattern
+Feel free to try this behaviour on the playable demonstration / prototype: [Combat Wings](https://simmer.io/@alissin/combat-wings).
 
-Based on this playable demonstration / prototype: [Combat Wings](https://simmer.io/@alissin/combat-wings).<br/>
-Feel free to try the behaviour of this _**Little Big Tip**_.
+_Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The scenario and the props are free assets from the Asset Store.
 
-_Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The amazing scenario and the props are free assets from the Asset Store.
-
-> ![Combat Wings](https://raw.githubusercontent.com/alissin/alissin.github.io/master/demonstration-projects/combat-wings.png)
-
-#### Scenario
-When the player airplane gets closer to the enemy, the attack starts!
+> ![Combat Wings](./../../z_images/combat_wings/combat-wings.png)
 
 #### Problem description
 There are several enemies on this level and all of them need to know where is the player airplane and check if it is close enough to start the attack.
 
 #### Solution simplified concept
-It garantees a unique global instance of it and we can access it whenever we need, wherever we are. Although singleton pattern is not likely recommended to big games, for simple ones, sometimes, it can worth.
+This pattern implementation garantees a unique global instance of the player and we can access it whenever we need, wherever we are. Although the singleton pattern is not likely recommended to big games, for simple ones, sometimes, it can worth.
 
 #### Solution suggestion
 In this case a singleton instance of a class will keep the reference of the player airplane, more specifically its position and the enemy can check the distance between then to start the attack.<br/>
@@ -32,7 +26,8 @@ Hierarchy:
 Create a C# script `GameManager.cs` and attach this script to the `Game Manager` game object:
 
 ```csharp
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
     ...
 ```
 
@@ -40,92 +35,106 @@ Define the fields:
 
 ```csharp
 // will keep the singleton instance of this object
-static GameManager _instance;
-public static GameManager Instance {
-    get => _instance;
+static GameManager instance;
+public static GameManager Instance
+{
+    get => instance;
 }
 
 [SerializeField]
-GameObject _player;
+GameObject player;
 
 // as we will need only the player position, let's expose only this information
-Vector3 _playerPosition;
-public Vector3 PlayerPosition {
-    get => _playerPosition;
+Vector3 playerPosition;
+public Vector3 PlayerPosition
+{
+    get => playerPosition;
 }
 ```
 
-Don't forget to set the field `_player` on `Game Manager` game object via inspector.
+Don't forget to set the field `player` on `Game Manager` game object via inspector.
 
-Step 1 - create the singleton instance:
+Create the singleton instance:
 
 ```csharp
-void Awake() {
-    _instance = this;
+void Awake() 
+{
+    instance = this;
 }
 ```
 
-Step 2 - make sure the player's position is always up-to-date:
+Make sure the player's position is always up-to-date:
 
 ```csharp
-void Update() {
-    _playerPosition = _player.transform.position;
+void Update()
+{
+    playerPosition = player.transform.position;
     ...
 }
 ```
 
-Step 3 - cool! Now, we can access this information whenever we need, wherever we are:
+Cool! Now, we can access this information whenever we need, wherever we are:
 
 ```csharp
-void CheckPlayerPosition() {
+void CheckPlayerPosition()
+{
     Vector3 playerPosition = GameManager.Instance.PlayerPosition;
     ...
 }
 ```
 
-Ok. Now imagine that we need more singletons classes. Come on, duplicate the code? Will we need to have the `_instance` field declaration, the instantiation code (`_instance = this`) on `Awake()` method in Every singleton class? No way! If we will use a singleton, let's use a... more "elegant" singleton then!
-
+Ok. Now imagine that we need more singletons classes. We need to avoid duplicating code. So, if we will use a singleton, let's use a... more "elegant" singleton then!<br/>
 _Note_: We will use [Generics](https://en.wikipedia.org/wiki/Generic_programming) in this case.
 
-Step 4 - let's make it better! Create a C# script `BaseManager.cs` (abstract class):
+Create a C# script `BaseManager.cs` (abstract class):
 
 ```csharp
-public abstract class BaseManager<T> : MonoBehaviour where T : BaseManager<T> {
-    static T _instance;
+public abstract class BaseManager<T> : MonoBehaviour where T : BaseManager<T>
+{
+    static T instance;
 
-    public static T Instance {
-        get {
+    public static T Instance
+    {
+        get
+        {
             // lazy instantiation, in a situation that you need the singleton in runtime but it was not yet instantiated
-            if (_instance == null) {
+            if (instance == null)
+            {
                 GameObject itemClone = new GameObject(typeof(T).Name);
                 T manager = itemClone.AddComponent<T>();
-                _instance = manager;
+                instance = manager;
             }
-            return _instance;
+            return instance;
         }
-        set {
-            if (_instance == null) {
-                _instance = value;
-                DontDestroyOnLoad(_instance.gameObject);
-            } else if (_instance != value) {
+        set
+        {
+            if (instance == null)
+            {
+                instance = value;
+                DontDestroyOnLoad(instance.gameObject);
+            }
+            else if (instance != value)
+            {
                 // if for some reason, you have duplication, destroy the duplicated instance
                 Destroy(value.gameObject);
             }
         }
     }
 
-    void Awake() {
+    void Awake()
+    {
         Instance = this as T;
     }
 }
 ```
 
-You can see that the field `_instance`, the property `Instance` and the `_instance = this` from `Awake()` method were moved to the `BaseManager.cs`.
+You can see that the field `instance`, the property `Instance` and the `instance = this` from `Awake()` method were moved to the `BaseManager.cs`.
 
-Step 5 - make the `GameManager.cs` extends the `BaseManager.cs`, remove the field `_instance`, remove the property `Instance`, remove the `_instance = this` from `Awake()` method from `GameManager.cs`:
+Make the `GameManager.cs` extends the `BaseManager.cs`, remove the field `instance`, remove the property `Instance`, remove the `Awake()` method implementation from `GameManager.cs`:
 
 ```csharp
-public class GameManager : BaseManager<GameManager> {
+public class GameManager : BaseManager<GameManager>
+{
     ...
 ```
 

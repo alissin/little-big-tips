@@ -1,16 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Item : MonoBehaviour {
-
+public class Item : MonoBehaviour
+{
     [SerializeField]
-    ItemSO _itemSO;
+    ItemSO itemSO;
 
-    Color _randomColor; // TODO: set a random color on Start() method for example
+    Color randomColor; // TODO: set a random color on Start() method for example
 
     // Start is called before the first frame update
-    void Start() {
-        Debug.Log(_itemSO.description + " " + _itemSO.value); // TODO: remove
+    void Start()
+    {
+        Debug.Log(itemSO.description + " " + itemSO.value); // TODO: remove
     }
 }

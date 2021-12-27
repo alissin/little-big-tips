@@ -1,20 +1,25 @@
 using UnityEngine;
 
-public class Block : MonoBehaviour {
+public class Block : MonoBehaviour
+{
+    bool isEnqueued = false;
 
-    bool _isEnqueued = false;
-    public bool IsEnqueued {
-        get => _isEnqueued;
-        set => _isEnqueued = value;
+    public bool IsEnqueued
+    {
+        get => isEnqueued;
+        set => isEnqueued = value;
     }
 
-    Block _tail;
-    public Block Tail {
-        get => _tail;
-        set => _tail = value;
+    Block tail;
+
+    public Block Tail
+    {
+        get => tail;
+        set => tail = value;
     }
 
-    public Vector2Int GetGridPosition() {
+    public Vector2Int GetGridPosition()
+    {
         return new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.z));
     }
 }

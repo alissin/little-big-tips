@@ -1,34 +1,23 @@
-## _**Little Big Tips**_ ![Joystick](https://raw.githubusercontent.com/alissin/alissin.github.io/master/images/joystick.png) > Pattern / Algorithm
+## _**Little Big Tips**_ ![Joystick](https://raw.githubusercontent.com/alissin/alissin.github.io/master/images/joystick.png) > Pattern / Algorithm > component pattern
 
-### component pattern
+Feel free to try this behaviour on the playable demonstration / prototype: [The Dungeon](https://simmer.io/@alissin/the-dungeon).
 
-Based on this playable demonstration / prototype: [The Dungeon](https://simmer.io/@alissin/the-dungeon).<br/>
-Feel free to try the behaviour of this _**Little Big Tip**_.
+_Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The FPS shooter gameplay mechanic itself, the scenario and the props are free assets from the Asset Store.
 
-_Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The FPS shooter gameplay mechanic itself, the amazing scenario and the props are free assets from the Asset Store.
-
-> ![The Dungeon](https://raw.githubusercontent.com/alissin/alissin.github.io/master/demonstration-projects/the-dungeon.png)
-
-#### Scenario
-Given our main characters in our game, the Player and the Enemy, both have movement, attack, health and only the Enemy has armor.
-
-About the movement, each one has its own mechinics.<br/>
-About the attack and damage, they are based on a damage value. So, we can say that the attack mechanic is to hit the opponent, pass the attack value and subtract to the opponent's health and vice versa.<br/>
-About the damage mechanic itselt, the Player only worries about the health and the Enemy also has the armor to take care of.
+> ![The Dungeon](./../../z_images/the_dungeon/the-dungeon.png)
 
 #### Problem description
-Sometimes, this type of situation makes us think about to keep the implementations together, something like a `Player.cs` script to control anything related to the Player and a `Enemy.cs` script to control anything related to the Enemy.
+Given our main characters in our game, the Player and the Enemy, both have movement, attack, health and only the Enemy has armor:<br/>
+- about the movement, each one has its own mechinics;
+- about the attack and damage, they are based on a damage value. So, we can say that the attack mechanic is to hit the opponent, pass the attack value and subtract to the opponent's health and vice versa;
+- about the damage mechanic itselt, the Player only worries about the health and the Enemy also has the armor to take care of;
 
-But, does it make sense? A unique and big class with hundred lines of code to be used in each object and make it hard do mantain? You and your teammates working at the same class at the same time? I don't think so.
+Sometimes, this type of situation makes us think about to keep all the implementations together, something like a `Player.cs` script to control anything related to the Player and a `Enemy.cs` script to control anything related to the Enemy. But it's hard to mantain and definitely it's not a good idea.
 
-If we have two scenarios, a production and a demonstration / prototyping scenarios and we would like to have different inputs of the player for each situation. Could we use an `if` statement right? It's better not.
+Suppose that we have two scenarios, a production and a demonstration / prototyping scenarios and we would like to have different inputs of the player for each situation. Instead a simple `if` statement, we could use different components.
 
 #### Solution simplified concept
-It's a good practice to keep the things simple and separeted.
-
-With the _component_ pattern, we start to think about to create each class (component) with its own responsability and as a bonus, we can reuse it wherever and whenever we want.
-
-For a team, it has its worth too because each one can work in an individual class and feature.
+It's a good practice to keep the things simple, clean and separeted. With the _component_ pattern, we start to think about to create each class (component) with its own responsability and as a bonus, we can reuse it wherever and whenever we want. For a team, it has its worth too because each one can work in an individual class and feature.
 
 #### Solution suggestion
 In our case, we could have the following classes (components):<br/>
@@ -40,11 +29,7 @@ In our case, we could have the following classes (components):<br/>
 `PlayerDamageable.cs` -> to deal with the Player's taking damage<br/>
 `EnemyDamageable.cs` -> to deal with the Enemy's taking damage
 
-As you can see, the movement and the damage has it own classes (components), but about the attack, we could reuse the code in the both: on Player attack (gun bullet) and on Enemy attack (arm hit).
-
-In general, the main idea here is to separate the things, each component has its own responsability. Code more organized and easy to mantain.
-
-Ok, enough. Let's have some fun: let's code!
+As you can see, the movement and the damage have its own classes (components). About the attack, we could reuse the code in the both: on Player attack (gun bullet) and on Enemy attack (arm hit). In general, the main idea here is to separate the things, each component has its own responsability and hence the code becomes more organized and easy to mantain.
 
 In the hierarchy, create 2 game objects and name them as `Player` and `Enemy`. In this case, create a Cube and a Sphere and put them side by side in the scene (the Collider components will be useful later):
 
@@ -54,23 +39,25 @@ Hierarchy:
 - Enemy
 ```
 
-Create a C# script `PlayerMovement.cs` and attach this script to the `Player` game object:<br/>
+Create a C# script `PlayerMovement.cs` and attach this script to the `Player` game object:
 
 ```csharp
-public class PlayerMovement : MonoBehaviour {
-
-    void Update() {
+public class PlayerMovement : MonoBehaviour
+{
+    void Update()
+    {
         // TODO: impl. the Player movement
     }
 }
 ```
 
-Create a C# script `EnemyMovement.cs` and attach this script to the `Enemy` game object:<br/>
+Create a C# script `EnemyMovement.cs` and attach this script to the `Enemy` game object:
 
 ```csharp
-public class EnemyMovement : MonoBehaviour {
-
-    void Update() {
+public class EnemyMovement : MonoBehaviour
+{
+    void Update()
+    {
         // TODO: impl. the Enemy movement
     }
 }
@@ -78,57 +65,61 @@ public class EnemyMovement : MonoBehaviour {
 
 _Note_: To keep this example simple and focused on the component mechanism, it's up to you to implement the movement mechanics.
 
-Step 1 - let's create the damage component. First, create a C# script `IDamageable.cs`. This will be our interface which we will implement our damage:
+Let's create the damage component. First, create a C# script `IDamageable.cs`. This will be our interface which we will implement our damage:
 
 ```csharp
-public interface IDamageable {
-
+public interface IDamageable
+{
     void OnTakeDamage(float amount);
 }
 ```
 
-Step 2 - now, let's create the attack component. Again, create a C# script `IAttackable.cs`. This will be our interface which we will implement our attack:
+Let's create the attack component. Again, create a C# script `IAttackable.cs`. This will be our interface which we will implement our attack:
 
 ```csharp
-public interface IAttackable {
-
+public interface IAttackable
+{
     void OnAttack(IDamageable damageable);
 }
 ```
 
-Step 3 - now, we can create our reusable attack:<br/>
+Now, we can create our reusable attack:<br/>
 _Note:_ In this case, I'm using the [flyweight pattern](../flyweight) to encapsulate the attack.
 
 ```csharp
-public class Attackable : MonoBehaviour, IAttackable {
-
+public class Attackable : MonoBehaviour, IAttackable
+{
     [SerializeField]
-    AttackSO _attack; // TODO: impl. the AttackSO Scriptable Object
+    AttackSO attack; // TODO: impl. the AttackSO Scriptable Object
 
-    public void OnAttack(IDamageable damageable) {
-        damageable.OnTakeDamage(_attack.baseDamage);
+    public void OnAttack(IDamageable damageable)
+    {
+        damageable.OnTakeDamage(attack.baseDamage);
     }
 }
 ```
 
-Step 4 - create the attack (`AttackSO`) of the `Player` and the attack of the `Enemy`.<br/>
+Create the attack (`AttackSO`) of the `Player` and the attack of the `Enemy`.<br/>
 _Note:_ Again, in this case, I'm using the [flyweight pattern](../flyweight) to create these Scriptable Objects.
 
-Step 5 - attach the `Attackble.cs` to the `Player` and in the inspector, attach the `AttackSO`. Do the same for the `Enemy`.
+Attach the `Attackble.cs` to the `Player` and in the inspector, attach the `AttackSO`. Do the same for the `Enemy`.
 
 As you can see, now we have the movement and the attack logics in separeted components and as a bonus, we are reusing the `Attackable` component.
 
-Step 6 - let's move on and create another component that will be responsible for the collisions. Again, we will reuse the same component for both, the `Player` and the `Enemy`. Don't forget to attach the `CollisionHandler.cs` to these game objects:
+Let's move on and create another component that will be responsible for the collisions. Again, we will reuse the same component for both, the `Player` and the `Enemy`. Don't forget to attach the `CollisionHandler.cs` to these game objects:
 
 ```csharp
-public class CollisionHandler : MonoBehaviour {
-
-    void OnCollisionEnter(Collision collision) {
+public class CollisionHandler : MonoBehaviour
+{
+    void OnCollisionEnter(Collision collision)
+    {
         IAttackable attackable = GetComponent<IAttackable>();
-        if (attackable != null) {
+        if (attackable != null)
+        {
             IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
 
-            if (damageable != null) {
+            if (damageable != null)
+            {
                 attackable.OnAttack(damageable);
             }
         }
@@ -136,17 +127,21 @@ public class CollisionHandler : MonoBehaviour {
 }
 ```
 
-Step 7 - let's create the final piece of this _**Little Big Tip**_, the damage component of the `Player`. Don't forget to attach the `PlayerDamageable.cs` to the `Player` game object:
+Let's create the damage component of the `Player`. Don't forget to attach the `PlayerDamageable.cs` to the `Player` game object:
 
 ```csharp
-public class PlayerDamageable : MonoBehaviour, IDamageable {
+public class PlayerDamageable : MonoBehaviour, IDamageable
+{
+    float health = 50.0f;
 
-    float _health = 50.0f;
-
-    public void OnTakeDamage(float amount) {
-        if (_health >= Mathf.Epsilon) {
-            _health -= amount;
-        } else {
+    public void OnTakeDamage(float amount) 
+    {
+        if (health >= Mathf.Epsilon)
+        {
+            health -= amount;
+        }
+        else
+        {
             // TODO: death
         }
         Debug.Log("player taking damage..."); // TODO: remove
@@ -154,20 +149,25 @@ public class PlayerDamageable : MonoBehaviour, IDamageable {
 }
 ```
 
-Step 8 - do the same to the `Enemy` and don't forget to attach the `EnemyDamageable.cs` to it:
+Do the same to the `Enemy` and don't forget to attach the `EnemyDamageable.cs` to it:
 
 ```csharp
-public class EnemyDamageable : MonoBehaviour, IDamageable {
+public class EnemyDamageable : MonoBehaviour, IDamageable
+{
+    float armor = 5.0f;
+    float health = 10.0f;
 
-    float _armor = 5.0f;
-    float _health = 10.0f;
-
-    public void OnTakeDamage(float amount) {
-        if (_armor >= Mathf.Epsilon) {
-            _armor -= amount;
-        } else if (health >= Mathf.Epsilon) {
-            _health -= amount;
-        } else {
+    public void OnTakeDamage(float amount)
+    {
+        if (armor >= Mathf.Epsilon) {
+            armor -= amount;
+        }
+        else if (health >= Mathf.Epsilon)
+        {
+            health -= amount;
+        }
+        else
+        {
             // TODO: death
         }
         Debug.Log("enemy taking damage..."); // TODO: remove
@@ -177,41 +177,46 @@ public class EnemyDamageable : MonoBehaviour, IDamageable {
 
 Cool! Now, go ahead to see it in action, add a `Rigidbody` to the `Player`, uncheck the `Use Gravity`, run the game and move the `Player` close to the `Enemy` to simulate the hit and you can see the both taking damage.
 
-Until here, our `Player` has already a lot of organized and separated components that we are really proud of. But, let's finish this _**Little Big Tip**_ if style.
+Until here, our `Player` has already a lot of organized and separated components that we are really proud of. But, let's finish this _**Little Big Tip**_ with style.
 
-Create a C# script `DemonstrationPlayerMovement.cs`:
+Create another C# script `DemonstrationPlayerMovement.cs`:
 
 ```csharp
-public class DemonstrationPlayerMovement : MonoBehaviour {
-
-    void Update() {
+public class DemonstrationPlayerMovement : MonoBehaviour
+{
+    void Update()
+    {
         // TODO: impl. the Player Demonstration movement
         // inputs for demonstration / prototyping scenario
     }
 }
 ```
 
-Step 9 - remove the `PlayerMovement.cs` from the `Player` game object.
+Remove the `PlayerMovement.cs` from the `Player` game object.
 
-Step 10 - in your `GameManager.cs` or wherever you have a reference of the `Player` game object, you could do something like this:
+In your `GameManager.cs` or wherever you have a reference of the `Player` game object, you could do something like this:
 
 ```csharp
-public class GameManager : MonoBehaviour {
-
+public class GameManager : MonoBehaviour
+{
     ...
 
     [SerializeField]
-    GameObject _player;
+    GameObject player;
 
     [Header("Debug key")]
     [SerializeField]
-    bool _isDemonstration = false;
+    bool isDemonstration = false;
 
-    void Start() {
-        if (Debug.isDebugBuild && _isDemonstration) {
-            _test.AddComponent<DemonstrationPlayerMovement>();
-        } else {
-            _test.AddComponent<PlayerMovement>();
+    void Start()
+    {
+        if (Debug.isDebugBuild && isDemonstration)
+        {
+            test.AddComponent<DemonstrationPlayerMovement>();
+        }
+        else
+        {
+            test.AddComponent<PlayerMovement>();
         }
     }
 

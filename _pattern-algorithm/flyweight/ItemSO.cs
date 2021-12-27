@@ -1,12 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu(fileName = "ItemSO", menuName = "Item")]
-public class ItemSO : ScriptableObject {
-
-    public enum Type {
-        MagHandgun, Grenade, HealthPotion
+public class ItemSO : ScriptableObject
+{
+    public enum Type
+    {
+        MagHandgun,
+        Grenade,
+        HealthPotion
     }
 
     public Type type;

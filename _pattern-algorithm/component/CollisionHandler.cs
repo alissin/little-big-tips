@@ -1,15 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class CollisionHandler : MonoBehaviour {
-
-    void OnCollisionEnter(Collision collision) {
+public class CollisionHandler : MonoBehaviour
+{
+    void OnCollisionEnter(Collision collision)
+    {
         IAttackable attackable = GetComponent<IAttackable>();
-        if (attackable != null) {
+        if (attackable != null)
+        {
             IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
 
-            if (damageable != null) {
+            if (damageable != null)
+            {
                 attackable.OnAttack(damageable);
             }
         }

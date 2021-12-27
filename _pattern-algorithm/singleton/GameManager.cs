@@ -1,17 +1,20 @@
 using UnityEngine;
 
-public class GameManager : BaseManager<GameManager> {
-
+public class GameManager : BaseManager<GameManager>
+{
     [SerializeField]
-    GameObject _player;
+    GameObject player;
 
     // as we will need only the player position, let's expose only this information
-    Vector3 _playerPosition;
-    public Vector3 PlayerPosition {
-        get => _playerPosition;
+    Vector3 playerPosition;
+
+    public Vector3 PlayerPosition
+    {
+        get => playerPosition;
     }
 
-    void Update() {
-        _playerPosition = _player.transform.position;
+    void Update()
+    {
+        playerPosition = player.transform.position;
     }
 }

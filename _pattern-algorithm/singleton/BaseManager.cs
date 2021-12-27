@@ -1,30 +1,40 @@
 using UnityEngine;
 
-public abstract class BaseManager<T> : MonoBehaviour where T : BaseManager<T> {
-    static T _instance;
+public abstract class BaseManager<T> : MonoBehaviour where T : BaseManager<T>
+{
+    static T instance;
 
-    public static T Instance {
-        get {
+    public static T Instance
+    {
+        get
+        {
             // Lazy instantiation, in a situation that you need the singleton in runtime but it was not yet instantiated
-            if (_instance == null) {
+            if (instance == null)
+            {
                 GameObject itemClone = new GameObject(typeof(T).Name);
                 T manager = itemClone.AddComponent<T>();
-                _instance = manager;
+                instance = manager;
             }
-            return _instance;
+
+            return instance;
         }
-        set {
-            if (_instance == null) {
-                _instance = value;
-                DontDestroyOnLoad(_instance.gameObject);
-            } else if (_instance != value) {
+        set
+        {
+            if (instance == null)
+            {
+                instance = value;
+                DontDestroyOnLoad(instance.gameObject);
+            }
+            else if (instance != value)
+            {
                 // if for some reason, you have duplication, destroy the duplicated instance
                 Destroy(value.gameObject);
             }
         }
     }
 
-    void Awake() {
+    void Awake()
+    {
         Instance = this as T;
     }
 }

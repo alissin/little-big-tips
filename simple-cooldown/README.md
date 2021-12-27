@@ -42,7 +42,7 @@ float cooldown = 5.0f;
 Slider cooldownSlider;
 
 int availableItems = 3;
-int _maxItems = 3;
+int maxItems = 3;
 bool isCooldownOn = false;
 ```
 

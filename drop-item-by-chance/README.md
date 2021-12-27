@@ -4,7 +4,7 @@ Feel free to try this behaviour on the playable demonstration / prototype: [The 
 
 _Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The FPS shooter gameplay mechanic itself, the scenario and the props are free assets from the Asset Store.
 
-> ![The Dungeon](./../z_images/the_dungeon/drop-item-by-chance.png)
+> ![The Dungeon](./../z_images/the_dungeon/the-dungeon2.png)
 
 #### Problem description
 We could do a simple drop mechanic like put all items in an array and then get a random index and instantiate the item. But sometimes the random index is not enough. 
@@ -133,10 +133,10 @@ Finally, let's create the method responsible for randomly drop the items:
 ```csharp
 public void DropItem(Vector3 dropPosition)
 {
-    float random = Mathf.Round(Random.Range(0, _totalDropChance) * 10.0f) / 10.0f;
+    float random = Mathf.Round(Random.Range(0, totalDropChance) * 10.0f) / 10.0f;
 
     float whichItem = 0.0f;
-    foreach (var item in _itemsSO)
+    foreach (var item in itemsSO)
     {
         whichItem += item.dropChance;
         if (whichItem >= random)

@@ -71,14 +71,15 @@ Let's setup the position:<br/>
 _Note_: We will use the localPosition because `Player` is a child of the Main Camera and the `Clamp` method to limit the screen.
 
 ```csharp
-void SetupPosition() {
+void SetupPosition()
+{
     // horizontal and vertical offset
-    float realTimeMovementSpeed = _movementSpeed * Time.deltaTime;
+    float realTimeMovementSpeed = movementSpeed * Time.deltaTime;
     float lhOffset = lh * realTimeMovementSpeed;
     float lvOffset = lv * realTimeMovementSpeed;
 
     // clamp the values to limit the screen
-    float xPos = Mathf.Clamp(lhOffset + transform.localPosition.x, -_maxHorRangePosition, maxHorRangePosition);
+    float xPos = Mathf.Clamp(lhOffset + transform.localPosition.x, -maxHorRangePosition, maxHorRangePosition);
     float yPos = Mathf.Clamp(-lvOffset + transform.localPosition.y, -maxVerRangePosition, maxVerRangePosition);
 
     // localPosition because `Player` is a child of the Main Camera
@@ -90,7 +91,8 @@ Finally, let's setup the rotation:<br/>
 _Note_: We will use the localRotation because `Player` is a child of the Main Camera.
 
 ```csharp
-void SetupRotation() {
+void SetupRotation()
+{
     float xRot = transform.localPosition.y * -pitchFactor + lv * rotationFactor;
     float yRot = transform.localPosition.x * yawFactor + lh * rotationFactor;
     float zRot = -lh * rollFactor;

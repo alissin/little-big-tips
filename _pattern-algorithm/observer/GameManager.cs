@@ -1,38 +1,44 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
+    static GameManager instance;
 
-    static GameManager _instance;
-
-    public static GameManager Instance {
-        get => _instance;
+    public static GameManager Instance
+    {
+        get => instance;
     }
 
     [SerializeField]
-    Player _player;
-    public Player Player {
-        get => _player;
+    Player player;
+
+    public Player Player
+    {
+        get => player;
     }
 
-    int _killPoints;
+    int killPoints;
 
-    void Awake() {
-        _instance = this;
+    void Awake()
+    {
+        instance = this;
     }
 
-    void Start() {
-        _player.OnDieAction += ResetGame;
+    void Start()
+    {
+        player.OnDieAction += ResetGame;
     }
 
-    void ResetGame() {
+    void ResetGame()
+    {
         StartCoroutine(ResetGameRoutine());
     }
 
-    IEnumerator ResetGameRoutine() {
-        _killPoints = 0;
+    IEnumerator ResetGameRoutine()
+    {
+        killPoints = 0;
         yield return new WaitForSeconds(3f);
         SceneManager.LoadScene(0);
     }

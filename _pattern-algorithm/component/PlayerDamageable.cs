@@ -1,17 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class PlayerDamageable : MonoBehaviour, IDamageable {
+public class PlayerDamageable : MonoBehaviour, IDamageable
+{
+    float health = 50.0f;
 
-    float _health = 50.0f;
-
-    public void OnTakeDamage(float amount) {
-        if (_health >= Mathf.Epsilon) {
-            _health -= amount;
-        } else {
+    public void OnTakeDamage(float amount)
+    {
+        if (health >= Mathf.Epsilon)
+        {
+            health -= amount;
+        }
+        else
+        {
             // TODO: death
         }
+
         Debug.Log("player taking damage..."); // TODO: remove
     }
 }

@@ -1,50 +1,56 @@
 using System.Collections;
 using UnityEngine;
 
-public class SpawnController : MonoBehaviour {
+public class SpawnController : MonoBehaviour
+{
+    [SerializeField]
+    GameObject spawnPrefab;
 
     [SerializeField]
-    GameObject _spawnPrefab;
+    float spawnDelay;
 
     [SerializeField]
-    float _spawnDelay;
+    int poolSize;
 
-    [SerializeField]
-    int _poolSize;
+    GameObject[] poolObjs;
 
-    GameObject[] _poolObjs;
-
-    int _currentPoolSize;
+    int currentPoolSize;
 
     // TODO: when your level is loaded, start the process with this method
-    void InitPool() {
-        _currentPoolSize = _poolSize;
-        _poolObjs = new GameObject[_currentPoolSize];
+    void InitPool()
+    {
+        currentPoolSize = poolSize;
+        poolObjs = new GameObject[currentPoolSize];
 
-        for (int i = 0; i < _poolObjs.Length; i++) {
-            GameObject itemClone = Instantiate(_spawnPrefab, transform);
+        for (int i = 0; i < poolObjs.Length; i++)
+        {
+            GameObject itemClone = Instantiate(spawnPrefab, transform);
             itemClone.SetActive(false);
-            _poolObjs[i] = itemClone;
+            poolObjs[i] = itemClone;
         }
     }
 
-    IEnumerator SpawnRoutine(Vector3 spawnPos, Quaternion spawnRot) {
-        while (true) {
+    IEnumerator SpawnRoutine(Vector3 spawnPos, Quaternion spawnRot)
+    {
+        while (true)
+        {
             GetObjFromPool(spawnPos, spawnRot);
-            yield return new WaitForSeconds(_spawnDelay);
+            yield return new WaitForSeconds(spawnDelay);
         }
     }
 
-    GameObject GetObjFromPool(Vector3 spawnPos, Quaternion spawnRot) {
+    GameObject GetObjFromPool(Vector3 spawnPos, Quaternion spawnRot)
+    {
         // if there is no more available items in the pool, do nothing
-        if (_currentPoolSize == 0) {
+        if (currentPoolSize == 0)
+        {
             return null;
         }
 
-        _currentPoolSize--;
+        currentPoolSize--;
 
-        GameObject obj = _poolObjs[_currentPoolSize];
-        _poolObjs[_currentPoolSize] = null;
+        GameObject obj = poolObjs[currentPoolSize];
+        poolObjs[currentPoolSize] = null;
 
         obj.transform.position = spawnPos;
         obj.transform.rotation = spawnRot;
@@ -53,10 +59,11 @@ public class SpawnController : MonoBehaviour {
         return obj;
     }
 
-    public void ReturnObjToPool(GameObject obj) {
+    public void ReturnObjToPool(GameObject obj)
+    {
         obj.SetActive(false);
 
-        _poolObjs[_currentPoolSize] = obj;
-        _currentPoolSize++;
+        poolObjs[currentPoolSize] = obj;
+        currentPoolSize++;
     }
 }

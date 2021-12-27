@@ -1,10 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour {
-
-    void Update() {
+public class EnemyMovement : MonoBehaviour
+{
+    void Update()
+    {
         // TODO: impl. the Enemy movement
     }
 }

@@ -1,45 +1,49 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Level : MonoBehaviour {
+public class Level : MonoBehaviour
+{
+    [SerializeField]
+    Block startBlock;
 
     [SerializeField]
-    Block _startBlock;
+    Block endBlock;
 
-    [SerializeField]
-    Block _endBlock;
+    Dictionary<Vector2Int, Block> gridDic = new Dictionary<Vector2Int, Block>();
+    Queue<Block> queue = new Queue<Block>();
 
-    Dictionary<Vector2Int, Block> _gridDic = new Dictionary<Vector2Int, Block>();
-    Queue<Block> _queue = new Queue<Block>();
-
-    Block[] _shortestPathBlocks;
+    Block[] shortestPathBlocks;
 
     // the order directions of the search, you can change it if you want
-    Vector2Int[] _directions = {
-        Vector2Int.up, Vector2Int.right, Vector2Int.down, Vector2Int.left
-    };
+    Vector2Int[] directions = { Vector2Int.up, Vector2Int.right, Vector2Int.down, Vector2Int.left };
 
     // TODO: when your level is loaded, start the process with this method
-    void LoadLevelBlocks() {
+    void LoadLevelBlocks()
+    {
         Block[] levelBlocks = transform.GetComponentsInChildren<Block>();
 
-        foreach (var item in levelBlocks) {
+        foreach (var item in levelBlocks)
+        {
             Vector2Int gridPos = item.GetGridPosition();
-            if (!_gridDic.ContainsKey(gridPos)) {
-                _gridDic.Add(gridPos, item);
+            if (!gridDic.ContainsKey(gridPos))
+            {
+                gridDic.Add(gridPos, item);
             }
         }
     }
 
-    void FindPathBlocksBFS() {
-        _startBlock.IsEnqueued = true;
-        _queue.Enqueue(_startBlock);
+    void FindPathBlocksBFS()
+    {
+        startBlock.IsEnqueued = true;
+        queue.Enqueue(startBlock);
 
-        while (_queue.Count > 0) {
-            var centerSearchBlock = _queue.Dequeue();
+        while (queue.Count > 0)
+        {
+            var centerSearchBlock = queue.Dequeue();
 
             // check if the algorithm already found the end point
-            if (centerSearchBlock.GetGridPosition() == _endBlock.GetGridPosition()) {
+            if (centerSearchBlock.GetGridPosition() == endBlock.GetGridPosition())
+            {
                 break;
             }
 
@@ -47,34 +51,41 @@ public class Level : MonoBehaviour {
         }
     }
 
-    void FindNeighbourBlocks(Block centerSearchBlock) {
-        foreach (var item in _directions) {
+    void FindNeighbourBlocks(Block centerSearchBlock)
+    {
+        foreach (var item in directions)
+        {
             Vector2Int neighbourPos = centerSearchBlock.GetGridPosition() + item;
 
             Block neighbourBlock;
-            if (_gridDic.TryGetValue(neighbourPos, out neighbourBlock)) {
-                if (!neighbourBlock.IsEnqueued) {
+            if (gridDic.TryGetValue(neighbourPos, out neighbourBlock))
+            {
+                if (!neighbourBlock.IsEnqueued)
+                {
                     // set the tail (where the search comes from)
                     neighbourBlock.Tail = centerSearchBlock;
                     // enqueue the block to be able to read it (previous method)
                     neighbourBlock.IsEnqueued = true;
-                    _queue.Enqueue(neighbourBlock);
+                    queue.Enqueue(neighbourBlock);
                 }
             }
         }
     }
 
-    void BuildShortestPathBlocks() {
+    void BuildShortestPathBlocks()
+    {
         // create a temporary reverse list and starts it with the end point
         List<Block> reversePathBlocks = new List<Block>();
-        reversePathBlocks.Add(_endBlock);
+        reversePathBlocks.Add(endBlock);
 
         // after that, put every tail in the list and check until it finds the start point
-        Block previousBlock = _endBlock.Tail;
-        while (previousBlock != null) {
+        Block previousBlock = endBlock.Tail;
+        while (previousBlock != null)
+        {
             reversePathBlocks.Add(previousBlock);
 
-            if (previousBlock.GetGridPosition() == _startBlock.GetGridPosition()) {
+            if (previousBlock.GetGridPosition() == startBlock.GetGridPosition())
+            {
                 break;
             }
 
@@ -82,9 +93,10 @@ public class Level : MonoBehaviour {
         }
 
         // set the size of the final array based on reverse list size, fill it in a reverse mode and here we go: our shortest path blocks!
-        _shortestPathBlocks = new Block[reversePathBlocks.Count];
-        for (int i = reversePathBlocks.Count - 1; i >= 0; i--) {
-            _shortestPathBlocks[reversePathBlocks.Count - 1 - i] = reversePathBlocks[i];
+        shortestPathBlocks = new Block[reversePathBlocks.Count];
+        for (int i = reversePathBlocks.Count - 1; i >= 0; i--)
+        {
+            shortestPathBlocks[reversePathBlocks.Count - 1 - i] = reversePathBlocks[i];
         }
     }
 }
