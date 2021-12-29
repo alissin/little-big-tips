@@ -4,7 +4,7 @@ Feel free to try this behaviour on the playable demonstration / prototype: [Real
 
 _Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The scenario and the props are free assets from the Asset Store.
 
-> ![Realm Defender](./../z_images/realm_defender/realm-defender.png)
+> ![Realm Defender](./../z_images/realm_defender/raycast-3D-click-detection.png)
 
 #### Problem description
 We need to stop the enemy warriors deploying catapults and barrels on a specific place in the 3D world space by clicking / touching.

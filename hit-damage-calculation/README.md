@@ -4,7 +4,7 @@ Feel free to try this behaviour on the playable demonstration / prototype: [The 
 
 _Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The FPS shooter gameplay mechanic itself, the scenario and the props are free assets from the Asset Store.
 
-> ![The Dungeon](./../z_images/the_dungeon/the-dungeon.png)
+> ![The Dungeon](./../z_images/the_dungeon/hit-damage-calculation.png)
 
 #### Problem description
 Not only the difference between the armor and health, but it could be really nice if we have different amount of damage on hitting the body or head. And, how about a critical hit chance?

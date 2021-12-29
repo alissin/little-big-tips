@@ -4,7 +4,7 @@ Feel free to try this behaviour on the playable demonstration / prototype: [Comb
 
 _Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The scenario and the props are free assets from the Asset Store.
 
-> ![Combat Wings](./../z_images/combat_wings/combat-wings.png)
+> ![Combat Wings](./../z_images/combat_wings/airplane-movement.png)
 
 #### Problem description
 In this case, although the path rail mechanism is responsible to move the airplane through the scenario, it's up to us to take care of the airplane local movement.

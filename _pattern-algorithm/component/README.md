@@ -4,7 +4,7 @@ Feel free to try this behaviour on the playable demonstration / prototype: [The 
 
 _Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The FPS shooter gameplay mechanic itself, the scenario and the props are free assets from the Asset Store.
 
-> ![The Dungeon](./../../z_images/the_dungeon/the-dungeon.png)
+> ![The Dungeon](./../../z_images/the_dungeon/component_and_state.png)
 
 #### Problem description
 Given our main characters in our game, the Player and the Enemy, both have movement, attack, health and only the Enemy has armor:<br/>

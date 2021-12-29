@@ -4,7 +4,7 @@ Feel free to try this behaviour on the playable demonstration / prototype: [Real
 
 _Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The scenario and the props are free assets from the Asset Store.
 
-> ![Realm Defender](./../../z_images/realm_defender/realm-defender.png)
+> ![Realm Defender](./../../z_images/realm_defender/observer.png)
 
 #### Scenario
 In this case, our player is the strong (or not enough) blue castle! When the health is gone, the player "dies" and so many parts of the game should know about that, right?

@@ -4,7 +4,7 @@ Feel free to try this behaviour on the playable demonstration / prototype: [Real
 
 _Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The scenario and the props are free assets from the Asset Store.
 
-> ![Realm Defender](./../../z_images/realm_defender/realm-defender.png)
+> ![Realm Defender](./../../z_images/realm_defender/object-pool.png)
 
 #### Problem description
 It's necessary to spawn infinite enemy warriors in a specific time interval. You could use `Instantiate()` and `Destroy()` methods to spawn / destroy them but it is not a good practice because it has a high cost in performance. Imagine a game with different waves of enemies for example.

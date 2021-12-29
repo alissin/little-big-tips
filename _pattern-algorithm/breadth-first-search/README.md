@@ -4,7 +4,7 @@ Feel free to try this behaviour on the playable demonstration / prototype: [Real
 
 _Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The scenario and the props are free assets from the Asset Store.
 
-> ![Realm Defender](./../../z_images/realm_defender/realm-defender.png)
+> ![Realm Defender](./../../z_images/realm_defender/breadth-first-search.png)
 
 #### Problem description
 We need to find the shortest path between the start point (red castle) and end point (blue castle).

@@ -4,7 +4,7 @@ Feel free to try this behaviour on the playable demonstration / prototype: [Real
 
 _Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The scenario and the props are free assets from the Asset Store.
 
-> ![Realm Defender](./../z_images/realm_defender/realm-defender.png)
+> ![Realm Defender](./../z_images/realm_defender/simple-cooldown.png)
 
 #### Problem description
 We can use only 3 weapons (catapults in this case) at each time. So, a cooldown system to reload theses weapons will be used to bring a challenge to the player.
