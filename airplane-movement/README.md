@@ -1,8 +1,9 @@
 ## _**Little Big Tips**_ ![Joystick](https://raw.githubusercontent.com/alissin/alissin.github.io/master/images/joystick.png) > General tips > airplane movement
 
 > ![Combat Wings](./../z_images/combat_wings/airplane-movement.png)
-> Feel free to try this behaviour on the playable demonstration / prototype: [Combat Wings](https://simmer.io/@alissin/combat-wings).<br/>
-> <font size=1>_Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The scenario and the props are free assets from the Asset Store.</font>
+
+Feel free to try this behaviour on the playable demonstration / prototype: [Combat Wings](https://simmer.io/@alissin/combat-wings).<br/>
+<sub>_Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The scenario and the props are free assets from the Asset Store.</sub>
 
 #### Problem description
 In this case, although the path rail mechanism is responsible to move the airplane through the scenario, it's up to us to take care of the airplane local movement.
