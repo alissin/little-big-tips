@@ -1,10 +1,9 @@
 ## _**Little Big Tips**_ ![Joystick](https://raw.githubusercontent.com/alissin/alissin.github.io/master/images/joystick.png) > Pattern / Algorithm > flyweight pattern
 
-Feel free to try this behaviour on the playable demonstration / prototype: [The Dungeon](https://simmer.io/@alissin/the-dungeon).
-
-_Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The FPS shooter gameplay mechanic itself, the scenario and the props are free assets from the Asset Store.
-
 > ![The Dungeon](./../../z_images/the_dungeon/flyweight.png)
+
+Feel free to try this behaviour on the playable demonstration / prototype: [The Dungeon](https://simmer.io/@alissin/the-dungeon).<br/>
+<sub>_Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The FPS shooter gameplay mechanic itself, the scenario and the props are free assets from the Asset Store.</sub>
 
 #### Problem description
 Imagine a lot of items like handgun mags, grenades, health potion scattered around the scene. In general, all of them have the same state (fields, values). For example, in our case: all health potions have the same amount of value to heal (`float 10.0f`), all handgun mags have the same amount of bullets (`int 9`).
@@ -34,7 +33,7 @@ public class Item : MonoBehaviour
 ```
 
 Create a C# script `ItemSO.cs` and extend `ScriptableObject`:<br/>
-_Note_: Don't forget to remove the `Start()` and `Update()` methods.
+<sub>_Note_: Don't forget to remove the `Start()` and `Update()` methods.</sub>
 
 ```csharp
 [CreateAssetMenu(fileName = "ItemSO", menuName = "Item")]

@@ -1,17 +1,16 @@
 ## _**Little Big Tips**_ ![Joystick](https://raw.githubusercontent.com/alissin/alissin.github.io/master/images/joystick.png) > General tips > hit damage calculation
 
-Feel free to try this behaviour on the playable demonstration / prototype: [The Dungeon](https://simmer.io/@alissin/the-dungeon).
-
-_Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The FPS shooter gameplay mechanic itself, the scenario and the props are free assets from the Asset Store.
-
 > ![The Dungeon](./../z_images/the_dungeon/hit-damage-calculation.png)
+
+Feel free to try this behaviour on the playable demonstration / prototype: [The Dungeon](https://simmer.io/@alissin/the-dungeon).<br/>
+<sub>_Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The FPS shooter gameplay mechanic itself, the scenario and the props are free assets from the Asset Store.</sub>
 
 #### Problem description
 Not only the difference between the armor and health, but it could be really nice if we have different amount of damage on hitting the body or head. And, how about a critical hit chance?
 
 #### Solution suggestion
 We will implement our damage system calculation based on crititcal hit chance and critical hit damage.<br/>
-_Note:_ To keep this example simple and focused on the hit damage calculation, it's up to you to decide how to control the attack and damage mechanism. As a suggestion, you could use the [component pattern](../_pattern-algorithm/component) to help on it.
+<sub>_Note:_ To keep this example simple and focused on the hit damage calculation, it's up to you to decide how to control the attack and damage mechanism. As a suggestion, you could use the [component pattern](../_pattern-algorithm/component) to help on it.</sub>
 
 In the hierarchy, create an empty game object and name it as `Enemy`. Nested to the `Enemy` game object, create a cube and name it as `Body` and a sphere and name it as `Head`.<br/>
 Create a capsule and name it as `Bullet`.<br/>
@@ -26,7 +25,7 @@ Hierarchy:
 ```
 
 Create a `Scripttable Object` that will be responsible for setup our attack damage information and to calculate the damage itself. Create a C# Script `AttackSO.cs` and define the fields:<br/>
-_Note:_ if necessary, I suggest a read on the [flyweight pattern](../_pattern-algorithm/flyweight) to have a better understand of `Scripttable Objects`.
+<sub>_Note:_ if necessary, I suggest a read on the [flyweight pattern](../_pattern-algorithm/flyweight) to have a better understand of `Scripttable Objects`.</sub>
 
 ```csharp
 [CreateAssetMenu(fileName = "AttackSO", menuName = "Attack")]

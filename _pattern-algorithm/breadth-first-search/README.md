@@ -1,10 +1,9 @@
 ## _**Little Big Tips**_ ![Joystick](https://raw.githubusercontent.com/alissin/alissin.github.io/master/images/joystick.png) > Pattern / Algorithm > pathfinder using Breadth First Search
 
-Feel free to try this behaviour on the playable demonstration / prototype: [Realm Defender](https://simmer.io/@alissin/realm-defender).
-
-_Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The scenario and the props are free assets from the Asset Store.
-
 > ![Realm Defender](./../../z_images/realm_defender/breadth-first-search.png)
+
+Feel free to try this behaviour on the playable demonstration / prototype: [Realm Defender](https://simmer.io/@alissin/realm-defender).<br/>
+<sub>_Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The scenario and the props are free assets from the Asset Store.</sub>
 
 #### Problem description
 We need to find the shortest path between the start point (red castle) and end point (blue castle).
@@ -35,7 +34,7 @@ public class Level : MonoBehaviour
 ```
 
 Define the fields:<br/>
-_Note_: You can find the `Block.cs` script in the repository. Don't forget to attach the `Block.cs` script to the `Block` game object.
+<sub>_Note_: You can find the `Block.cs` script in the repository. Don't forget to attach the `Block.cs` script to the `Block` game object.</sub>
 
 ```csharp
 [SerializeField]

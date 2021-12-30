@@ -1,8 +1,8 @@
 ## _**Little Big Tips**_ ![Joystick](https://raw.githubusercontent.com/alissin/alissin.github.io/master/images/joystick.png) > General tips > explode the rocket
 
-Feel free to try this behaviour on the playable demonstration / prototype: [Boost the Rocket](https://simmer.io/@alissin/boost-the-rocket).
-
 > ![Boost the Rocket](./../z_images/boost_the_rocket/explode-the-rocket.png)
+
+Feel free to try this behaviour on the playable demonstration / prototype: [Boost the Rocket](https://simmer.io/@alissin/boost-the-rocket).
 
 #### Problem description
 The visual effect is very important and bring more realism and fun to the game. So, when the rocket explodes, all the pieces should fly away.
@@ -76,7 +76,7 @@ void Start()
 ```
 
 Let's give a little push to each "breakable" piece:<br/>
-_Note:_ each child game object of the `Breakable Player` game object should have a `RigidBody` attached.
+<sub>_Note:_ each child game object of the `Breakable Player` game object should have a `RigidBody` attached.</sub>
 
 ```csharp
 void ImpulseByExplosion(Transform transform, int idx)

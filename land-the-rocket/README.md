@@ -1,8 +1,8 @@
 ## _**Little Big Tips**_ ![Joystick](https://raw.githubusercontent.com/alissin/alissin.github.io/master/images/joystick.png) > General tips > land the rocket
 
-Feel free to try this behaviour on the playable demonstration / prototype: [Boost the Rocket](https://simmer.io/@alissin/boost-the-rocket).
-
 > ![Boost the Rocket](./../z_images/boost_the_rocket/land-the-rocket.png)
+
+Feel free to try this behaviour on the playable demonstration / prototype: [Boost the Rocket](https://simmer.io/@alissin/boost-the-rocket).
 
 #### Problem description
 How to have a more realistic and smoothly landing when close to the landing pad and avoid an explosion?
@@ -30,8 +30,8 @@ bool isLandingCompleted = false;
 Set the tag of your landing pad game object to `Landing Pad`.
 
 Let's check if the `Player` is close to the landing pad and in a safe angle to land:<br/>
-_Note:_ the landing pad uses the `IsSafeLandingAngle()` method to check if it's red or green when the `Player` gets close, as you can see on the image above.<br/>
-_Note 2:_ the color change is out of scope of this _**Little Big Tip**_.
+<sub>_Note:_ the landing pad uses the `IsSafeLandingAngle()` method to check if it's red or green when the `Player` gets close, as you can see on the image above.<br/>
+_Note 2:_ the color change is out of scope of this _**Little Big Tip**_.</sub>
 
 ```csharp
 void OnCollisionEnter(Collision collision)
@@ -78,7 +78,7 @@ void Update()
 ```
 
 Now, let's take care of our super smooth and stylish landing:<br/>
-_Note:_ our rocket Player fits the right place above the landing pad smoothly.
+<sub>_Note:_ our rocket Player fits the right place above the landing pad smoothly.</sub>
 
 ```csharp
 void Land(Transform groundTransform)

@@ -1,9 +1,5 @@
 ## _**Little Big Tips**_ ![Joystick](https://raw.githubusercontent.com/alissin/alissin.github.io/master/images/joystick.png) > General tips > raycast patrol detection
 
-Feel free to try this behaviour on the playable demonstration / prototype: [The Dungeon](https://simmer.io/@alissin/the-dungeon).
-
-_Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The props are free assets from the Asset Store.
-
 #### Problem description
 If the player stays in front of the enemy, of course the player will be seen. But we want to try to go behind the enemy and hit it with a stealth attack. We could be use a raycast with a ray pointing directly to the player instance to achieve this behaviour. But in this case, all enemies should have a reference to the player instance and the calculation would be more difficult because we would need to know if the player is in front or behind our enemy.
 
@@ -11,6 +7,9 @@ If the player stays in front of the enemy, of course the player will be seen. Bu
 We will implement a raycast with a ray rounding the enemy and if the player comes close, it will be detected. To get it more realistic, we could set a ray with a long distance in front of the enemy but a short one when behind, like so (click to see the behaviour in action):
 
 > [![raycast patrol detection](./../z_images/raycast-patrol-detection_small.png)](https://youtu.be/y9Yd5Q0NrgE)
+
+Feel free to try this behaviour on the playable demonstration / prototype: [The Dungeon](https://simmer.io/@alissin/the-dungeon).<br/>
+<sub>_Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The props are free assets from the Asset Store.</sub>
 
 In the hierarchy, create a game object and name it as `Enemy`:
 
@@ -114,7 +113,7 @@ void Start()
 ```
 
 Cool! Hit play and enjoy with the yellow ray rounding the `Enemy` game object.<br/>
-_Note:_ the `Debug.DrawRay()` draws the ray in runtime and we can see it in the scene view (not in the game view).
+<sub>_Note:_ the `Debug.DrawRay()` draws the ray in runtime and we can see it in the scene view (not in the game view).</sub>
 
 #### Scripts:
 [Enemy.cs](./Enemy.cs)

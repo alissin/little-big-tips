@@ -1,10 +1,9 @@
 ## _**Little Big Tips**_ ![Joystick](https://raw.githubusercontent.com/alissin/alissin.github.io/master/images/joystick.png) > General tips > raycast 3D click / touch detection
 
-Feel free to try this behaviour on the playable demonstration / prototype: [Realm Defender](https://simmer.io/@alissin/realm-defender).
-
-_Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The scenario and the props are free assets from the Asset Store.
-
 > ![Realm Defender](./../z_images/realm_defender/raycast-3D-click-detection.png)
+
+Feel free to try this behaviour on the playable demonstration / prototype: [Realm Defender](https://simmer.io/@alissin/realm-defender).<br/>
+<sub>_Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The scenario and the props are free assets from the Asset Store.</sub>
 
 #### Problem description
 We need to stop the enemy warriors deploying catapults and barrels on a specific place in the 3D world space by clicking / touching.
@@ -14,7 +13,7 @@ We can use the `Physics.Raycast` to detect the collisions points of the touch or
 
 #### Solution suggestion
 As we will use the `Physics.Raycast`, we need to make sure that all the placeable game objects have a `Collider` attached. In this case, the lighter green blocks (to deploy the catapults) and the warriors (to deploy the barrels).<br/>
-_Note:_ the mechanism of this prototype receives the catapult on the lighter green blocks and the barrels directly on the warriors head. This _**Little Big Tip**_ will cover only the catapult deploy using the raycast technique. The way to deal with the barrel is almost the same.
+<sub>_Note:_ the mechanism of this prototype receives the catapult on the lighter green blocks and the barrels directly on the warriors head. This _**Little Big Tip**_ will cover only the catapult deploy using the raycast technique. The way to deal with the barrel is almost the same.</sub>
 
 In the hierarchy, create a game object and name it as `Input Controller`:
 
@@ -41,7 +40,7 @@ GameObject weaponPrefab;
 Don't forget to set the field `weaponPrefab` on `Input Controller` game object via inspector. In this case, the weapon is the catapult.
 
 Create a `Block` game object in the hierarchy and set the tag to `Ground`. This game object is where we will deploy our weapon. Don't forget to attach the `Block.cs` script to it.<br/>
-_Note:_ you can find the `Block.cs` script in the repository.
+<sub>_Note:_ you can find the `Block.cs` script in the repository.</sub>
 
 Based on the camera position, we can find where the player is touching / clicking on the screen and the `Physics.Raycast` will give us the game object that was hit:
 
@@ -77,7 +76,7 @@ void DeployWeapon(Block block)
 }
 ```
 
-_Note_: To keep this example simple and focused on the touch / click mechanism, we are just instantiating the weapon game object on hit position. In a real development scenario, I suggest to use a more optimized and performatic technique like [object pool](../_pattern-algorithm/object-pool).
+<sub>_Note_: To keep this example simple and focused on the touch / click mechanism, we are just instantiating the weapon game object on hit position. In a real development scenario, I suggest to use a more optimized and performatic technique like [object pool](../_pattern-algorithm/object-pool).</sub>
 
 #### Scripts:
 [InputController.cs](./InputController.cs), [Block.cs](./Block.cs)

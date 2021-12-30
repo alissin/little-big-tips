@@ -1,10 +1,9 @@
 ## _**Little Big Tips**_ ![Joystick](https://raw.githubusercontent.com/alissin/alissin.github.io/master/images/joystick.png) > Pattern / Algorithm > command pattern
 
-Feel free to try this behaviour on the playable demonstration / prototype: [The Dungeon](https://simmer.io/@alissin/the-dungeon).
-
-_Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The FPS shooter gameplay mechanic itself, the scenario and the props are free assets from the Asset Store.
-
 > ![The Dungeon](./../../z_images/the_dungeon/command.png)
+
+Feel free to try this behaviour on the playable demonstration / prototype: [The Dungeon](https://simmer.io/@alissin/the-dungeon).<br/>
+<sub>_Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The FPS shooter gameplay mechanic itself, the scenario and the props are free assets from the Asset Store.</sub>
 
 #### Problem description
 Sometimes, the Player wants to change the controls in runtime. So, how to make this change fast and dynamic?
@@ -14,7 +13,7 @@ With the _command_ pattern, we are able to decoupling the button (or the key of 
 
 #### Solution suggestion
 In this case, our player has a lot of actions.<br/>
-_Note_: To keep this example simple, we will map only 4 actions to use our command pattern: UseKnife, Reload, Loot and Interact. After that, you will get the idea and will be able to implement the other actions with no problem.
+<sub>_Note_: To keep this example simple, we will map only 4 actions to use our command pattern: UseKnife, Reload, Loot and Interact. After that, you will get the idea and will be able to implement the other actions with no problem.</sub>
 
 In the hierarchy, create 2 game objects and name them as `Player` and `Input Handler`:
 
@@ -226,7 +225,7 @@ void Update()
 }
 ```
 
-_Note_: In this case, I'm using the [singleton pattern](../singleton) to access the `Player` script.
+<sub>_Note_: In this case, I'm using the [singleton pattern](../singleton) to access the `Player` script.</sub>
 
 The `HandleInput()` method returns the command and we only need to call the `Execute()` method of it.
 

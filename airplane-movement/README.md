@@ -67,7 +67,7 @@ void Update()
 ```
 
 Let's setup the position:<br/>
-_Note_: We will use the localPosition because `Player` is a child of the Main Camera and the `Clamp` method to limit the screen.
+<sub>_Note_: We will use the localPosition because `Player` is a child of the Main Camera and the `Clamp` method to limit the screen.</sub>
 
 ```csharp
 void SetupPosition()
@@ -87,7 +87,7 @@ void SetupPosition()
 ```
 
 Finally, let's setup the rotation:<br/>
-_Note_: We will use the localRotation because `Player` is a child of the Main Camera.
+<sub>_Note_: We will use the localRotation because `Player` is a child of the Main Camera.</sub>
 
 ```csharp
 void SetupRotation()

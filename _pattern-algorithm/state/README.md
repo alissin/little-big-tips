@@ -1,10 +1,9 @@
 ## _**Little Big Tips**_ ![Joystick](https://raw.githubusercontent.com/alissin/alissin.github.io/master/images/joystick.png) > Pattern / Algorithm > state pattern
 
-Feel free to try this behaviour on the playable demonstration / prototype: [The Dungeon](https://simmer.io/@alissin/the-dungeon).
-
-_Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The FPS shooter gameplay mechanic itself, the scenario and the props are free assets from the Asset Store.
-
 > ![The Dungeon](./../../z_images/the_dungeon/component_and_state.png)
+
+Feel free to try this behaviour on the playable demonstration / prototype: [The Dungeon](https://simmer.io/@alissin/the-dungeon).<br/>
+<sub>_Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The FPS shooter gameplay mechanic itself, the scenario and the props are free assets from the Asset Store.</sub>
 
 #### Problem description
 How to deal with so many states of the enemy skeleton? For example, if the current state is walk, which state could be the next one? How they are related with each other? As a classic example (not this case), if the character is jumping, how to avoid the crouch of the character in the air?
@@ -16,7 +15,7 @@ Based on the _finite state machines_ (or _"FSMs"_) concept, this pattern has eac
 
 #### Solution suggestion
 In this case, our enemy skeleton has the following states: Resurrection, Idle, Hit, Walk, Attack and Death.<br/>
-_Note_: To keep this example simple, we will implement only 3 states: Idle, Walk, Attack. After that, you will get the idea and will be able to implement the other states with no problem.
+<sub>_Note_: To keep this example simple, we will implement only 3 states: Idle, Walk, Attack. After that, you will get the idea and will be able to implement the other states with no problem.</sub>
 
 In the hierarchy, create a game object and name it as `Enemy`:
 
@@ -26,7 +25,7 @@ Hierarchy:
 ```
 
 Create a C# script `EnemyStateController.cs` and attach this script to the `Enemy` game object:<br/>
-_Note_: In this case, I'm using the `NavMesh` system. So make sure to bake the navigation, attach an `Animator` and an `NavMeshAgent` components to the `Enemy` game object.
+<sub>_Note_: In this case, I'm using the `NavMesh` system. So make sure to bake the navigation, attach an `Animator` and an `NavMeshAgent` components to the `Enemy` game object.</sub>
 
 ```csharp
 public class EnemyStateController : MonoBehaviour
@@ -176,7 +175,7 @@ public class IdleState : IEnemyState
 }
 ```
 
-_Note_: To keep this example simple and focused on the state mechanism, the `Enemy` is looking directly to its front. The [raycast patrol detection](../../raycast-patrol-detection) can help to make it more interesting.
+<sub>_Note_: To keep this example simple and focused on the state mechanism, the `Enemy` is looking directly to its front. The [raycast patrol detection](../../raycast-patrol-detection) can help to make it more interesting.</sub>
 
 The `IdleState` keeps the `Enemy` patrolling and when the `Player` comes close, it changes the state to the `WalkState`.
 
@@ -210,7 +209,7 @@ public class WalkState : IEnemyState
 }
 ```
 
-_Note_: In this case, I'm using the [singleton pattern](../singleton) to access the `Player` position. With the `NavMesh` system and the `NavMeshAgent`, we can set the direction of the agent and make it move.
+<sub>_Note_: In this case, I'm using the [singleton pattern](../singleton) to access the `Player` position. With the `NavMesh` system and the `NavMeshAgent`, we can set the direction of the agent and make it move.</sub>
 
 Finally, let's implement the `AttackState`:
 

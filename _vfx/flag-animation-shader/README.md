@@ -1,25 +1,20 @@
-## _**Little Big Tips**_ ![Joystick](https://raw.githubusercontent.com/alissin/alissin.github.io/master/images/joystick.png) > VFX - Shaders
-
-### flag animation shader
-
-See this VFX in action [here](https://youtu.be/ciC5yaOy-S0).
-
-_Note_: The purpose of this demonstration is to evaluate this VFX. The amazing scenario and the props are free assets from the Asset Store.
+## _**Little Big Tips**_ ![Joystick](https://raw.githubusercontent.com/alissin/alissin.github.io/master/images/joystick.png) > VFX - Shaders > flag animation shader
 
 > [![flag animation shader](./flag-animation-shader_small.png)](https://youtu.be/ciC5yaOy-S0)
 
-#### Scenario
-How about to see a wind effect on our flag?
+Click to see this VFX in action.<br/>
+<sub>_Note_: The purpose of this demonstration is to evaluate this VFX. The scenario and the props are free assets from the Asset Store.</sub>
+
+#### Problem description
+How to simulate a simple wind effect on our flag?
 
 #### Solution suggestion
-This _**Little Big Tip**_ will add some animation on the normal direction (Y vector) of a `Plane` mesh.
-
-And the best part of this _**Little Big Tip**_: we are going to write our own shader using cg language!<br/>
-_Note:_ as this shader animates the normal vertices, make sure to have a high poly mesh.
+We will write our own shader using cg language. So, we will be able to add some animation on the normal direction (Y vector) of a `Plane` mesh.<br/>
+<sub>_Note:_ as this shader animates the normal vertices, make sure to have a high poly mesh.</sub>
 
 Create an empty file and name it `FlagAnimation.shader`.
 
-Step 1 - let's create the base structure of our shader file:
+Create the base structure of our shader file:
 
 ```
 Shader "MyShader/FlagAnimation" {
@@ -42,7 +37,7 @@ Shader "MyShader/FlagAnimation" {
 
 As you can see, we have all the base code blocks for a basic cg language shader.
 
-Step 2 - let's define our `Properties`:
+Define the `Properties`:
 
 ```
 Properties {    
@@ -53,7 +48,7 @@ Properties {
 }
 ```
 
-Step 3 - now, inside the `CGPROGRAM` block, let's declare our main functions and properties:
+Inside the `CGPROGRAM` block, let's declare the main functions and properties:
 
 ```
 CGPROGRAM
@@ -70,8 +65,8 @@ uniform float _Amplitude;
 ENDCG
 ```
 
-Step 4 - our input and output:<br/>
-_Note:_ below the code of step 3.
+Now, the input and output:<br/>
+<sub>_Note:_ below the code of step 3.</sub>
 
 ```
 CGPROGRAM
@@ -91,8 +86,8 @@ struct output {
 ENDCG
 ```
 
-Step 5 - finally, the vertex shader and fragment shader functions. We will use the math sin function to animate and simulate the "bounce" of the vertices. In this case, we are changing only the Y vector of the mesh:<br/>
-_Note:_ below the code of step 4.
+Finally, the vertex shader and fragment shader functions. We will use the math sin function to animate and simulate the "bounce" of the vertices. In this case, we are changing only the Y vector of the mesh:<br/>
+<sub>_Note:_ below the code of step 4.</sub>
 
 ```
 CGPROGRAM
@@ -116,7 +111,7 @@ half4 frag(output o) : COLOR {
 ENDCG
 ```
 
-Step 6 - as you can see, only one side of the `Plane` surface is visible. Our shader can help us with this:
+As you can see, only one side of the `Plane` surface is visible. Our shader can help us with this:
 
 ```
 Pass {
@@ -126,15 +121,13 @@ Pass {
     ...
 ```
 
-Step 7 - find a very cool 2D texture in the Asset Store and don't forget to set the texture shape as `2D` and apply:
+Find a very cool 2D texture in the Asset Store and don't forget to set the texture shape as `2D` and apply:
 
 > ![2d-texture](../_common-images/2d-texture.png)
 
-Step 8 - create a material, change it to use our shader, select your texture and finally attach this material to the `Plane` mesh:
+Create a material, change it to use our shader, select your texture and finally attach this material to the `Plane` mesh:
 
 > ![material](./material.png)
-
-Step 9 - hit play!
 
 Again, feel free to see this VFX in action [here](https://youtu.be/ciC5yaOy-S0).
 

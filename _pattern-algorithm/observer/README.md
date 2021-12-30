@@ -1,10 +1,9 @@
 ## _**Little Big Tips**_ ![Joystick](https://raw.githubusercontent.com/alissin/alissin.github.io/master/images/joystick.png) > Pattern / Algorithm > observer pattern
 
-Feel free to try this behaviour on the playable demonstration / prototype: [Realm Defender](https://simmer.io/@alissin/realm-defender).
-
-_Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The scenario and the props are free assets from the Asset Store.
-
 > ![Realm Defender](./../../z_images/realm_defender/observer.png)
+
+Feel free to try this behaviour on the playable demonstration / prototype: [Realm Defender](https://simmer.io/@alissin/realm-defender).<br/>
+<sub>_Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The scenario and the props are free assets from the Asset Store.</sub>
 
 #### Scenario
 In this case, our player is the strong (or not enough) blue castle! When the health is gone, the player "dies" and so many parts of the game should know about that, right?
@@ -93,7 +92,7 @@ It means that when the `OnDieAction` is invoked, the method `RunExplosion()` wil
 Now, let's make this more fun and make another classes to subscribe on it as well.
 
 In the `GameManager.cs` script, define the fields and methods:<br/>
-_Note_: In this case, I'm using the [singleton pattern](../singleton) to access the `Player` script. To use the `SceneManager`, we need to put the `UnityEngine.SceneManagement` namespace in this class like so: `using UnityEngine.SceneManagement`.
+<sub>_Note_: In this case, I'm using the [singleton pattern](../singleton) to access the `Player` script. To use the `SceneManager`, we need to put the `UnityEngine.SceneManagement` namespace in this class like so: `using UnityEngine.SceneManagement`.</sub>
 
 ```csharp
 static GameManager instance;
@@ -142,7 +141,7 @@ void Start()
 Now, we have the `Player.cs` itself and the `GameManager.cs` subscribed on the `OnDieAction`. It means that, when the `OnDieAction` is invoked, the method `RunExplosion()` and `ResetGame()` will be called automatically.
 
 Let's finish this with our `UIManager.cs`:<br/>
-_Note:_ Don't forget to use the namespace `using UnityEngine.UI` (or `using TMPro`, in case you are using `TextMeshProUGUI`):
+<sub>_Note:_ Don't forget to use the namespace `using UnityEngine.UI` (or `using TMPro`, in case you are using `TextMeshProUGUI`):</sub>
 
 ```csharp
 [SerializeField]

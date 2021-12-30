@@ -1,10 +1,9 @@
 ## _**Little Big Tips**_ ![Joystick](https://raw.githubusercontent.com/alissin/alissin.github.io/master/images/joystick.png) > Pattern / Algorithm > component pattern
 
-Feel free to try this behaviour on the playable demonstration / prototype: [The Dungeon](https://simmer.io/@alissin/the-dungeon).
-
-_Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The FPS shooter gameplay mechanic itself, the scenario and the props are free assets from the Asset Store.
-
 > ![The Dungeon](./../../z_images/the_dungeon/component_and_state.png)
+
+Feel free to try this behaviour on the playable demonstration / prototype: [The Dungeon](https://simmer.io/@alissin/the-dungeon).<br/>
+<sub>_Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The FPS shooter gameplay mechanic itself, the scenario and the props are free assets from the Asset Store.</sub>
 
 #### Problem description
 Given our main characters in our game, the Player and the Enemy, both have movement, attack, health and only the Enemy has armor:<br/>
@@ -63,7 +62,7 @@ public class EnemyMovement : MonoBehaviour
 }
 ```
 
-_Note_: To keep this example simple and focused on the component mechanism, it's up to you to implement the movement mechanics.
+<sub>_Note_: To keep this example simple and focused on the component mechanism, it's up to you to implement the movement mechanics.</sub>
 
 Let's create the damage component. First, create a C# script `IDamageable.cs`. This will be our interface which we will implement our damage:
 
@@ -84,7 +83,7 @@ public interface IAttackable
 ```
 
 Now, we can create our reusable attack:<br/>
-_Note:_ In this case, I'm using the [flyweight pattern](../flyweight) to encapsulate the attack.
+<sub>_Note:_ In this case, I'm using the [flyweight pattern](../flyweight) to encapsulate the attack.</sub>
 
 ```csharp
 public class Attackable : MonoBehaviour, IAttackable
@@ -100,7 +99,7 @@ public class Attackable : MonoBehaviour, IAttackable
 ```
 
 Create the attack (`AttackSO`) of the `Player` and the attack of the `Enemy`.<br/>
-_Note:_ Again, in this case, I'm using the [flyweight pattern](../flyweight) to create these Scriptable Objects.
+<sub>_Note:_ Again, in this case, I'm using the [flyweight pattern](../flyweight) to create these Scriptable Objects.</sub>
 
 Attach the `Attackble.cs` to the `Player` and in the inspector, attach the `AttackSO`. Do the same for the `Enemy`.
 

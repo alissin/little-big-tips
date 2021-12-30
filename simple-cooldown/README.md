@@ -1,20 +1,19 @@
 ## _**Little Big Tips**_ ![Joystick](https://raw.githubusercontent.com/alissin/alissin.github.io/master/images/joystick.png) > General tips > simple cooldown
 
-Feel free to try this behaviour on the playable demonstration / prototype: [Realm Defender](https://simmer.io/@alissin/realm-defender).
-
-_Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The scenario and the props are free assets from the Asset Store.
-
 > ![Realm Defender](./../z_images/realm_defender/simple-cooldown.png)
+
+Feel free to try this behaviour on the playable demonstration / prototype: [Realm Defender](https://simmer.io/@alissin/realm-defender).<br/>
+<sub>_Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The scenario and the props are free assets from the Asset Store.</sub>
 
 #### Problem description
 We can use only 3 weapons (catapults in this case) at each time. So, a cooldown system to reload theses weapons will be used to bring a challenge to the player.
 
 #### Solution suggestion
 In this case, it was used a simple `UI Slider` to show this effect on the screen. You can use whatever you want.<br/>
-_Note_: The scope of this _**Little Big Tip**_ is only the cooldown implementation.
+<sub>_Note_: The scope of this _**Little Big Tip**_ is only the cooldown implementation.</sub>
 
 In the hierarchy, create an `UI Slider` game object:<br/>
-_Note_: An `UI Canvas` and an `EventSystem` game objects will be created automatically. Leave them there.
+<sub>_Note_: An `UI Canvas` and an `EventSystem` game objects will be created automatically. Leave them there.</sub>
 
 ```
 Hierarchy:
@@ -82,7 +81,7 @@ void Update()
 ```
 
 Let's simulate when the player uses the items:<br/>
-_Note:_ this will use the 3 items at the same time, just to see the cooldown in action.
+<sub>_Note:_ this will use the 3 items at the same time, just to see the cooldown in action.</sub>
 
 ```csharp
 void Update()

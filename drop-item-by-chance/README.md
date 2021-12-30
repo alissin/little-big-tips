@@ -1,18 +1,16 @@
 ## _**Little Big Tips**_ ![Joystick](https://raw.githubusercontent.com/alissin/alissin.github.io/master/images/joystick.png) > General tips > drop item by chance
 
-Feel free to try this behaviour on the playable demonstration / prototype: [The Dungeon](https://simmer.io/@alissin/the-dungeon).
-
-_Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The FPS shooter gameplay mechanic itself, the scenario and the props are free assets from the Asset Store.
-
 > ![The Dungeon](./../z_images/the_dungeon/drop-item-by-chance.png)
+
+Feel free to try this behaviour on the playable demonstration / prototype: [The Dungeon](https://simmer.io/@alissin/the-dungeon).<br/>
+<sub>_Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The FPS shooter gameplay mechanic itself, the scenario and the props are free assets from the Asset Store.</sub>
 
 #### Problem description
 We could do a simple drop mechanic like put all items in an array and then get a random index and instantiate the item. But sometimes the random index is not enough. 
 
 #### Solution suggestion
-A good way to so solve that is a mechanic based on drop chance. For example, the health potion has a 0.4 (40%) of chance against 0.1 (10%) of the grenade.
-
-_Note:_ We will use `Scriptable Objects` to make this more professional and fun. So, I suggest to read the [flyweight pattern](../_pattern-algorithm/flyweight) to have a better understand of that.
+A good way to so solve that is a mechanic based on drop chance. For example, the health potion has a 0.4 (40%) of chance against 0.1 (10%) of the grenade.<br/>
+<sub>_Note:_ We will use `Scriptable Objects` to make this more professional and fun. So, I suggest to read the [flyweight pattern](../_pattern-algorithm/flyweight) to have a better understand of that.</sub>
 
 In the hierarchy, create 3 game objects and name them as `Item Drop Manager`, `Grenade` and `Health Potion`:
 
@@ -32,7 +30,7 @@ public class ItemDropManager : MonoBehaviour
 ```
 
 Let's create our `Scripttable Object`. Create a C# Script `ItemSO.cs` and define the fields:<br/>
-_Note:_ Again, if necessary, don't forget to read the [flyweight pattern](../_pattern-algorithm/flyweight) to have a better understand of that.
+<sub>_Note:_ Again, if necessary, don't forget to read the [flyweight pattern](../_pattern-algorithm/flyweight) to have a better understand of that.</sub>
 
 ```csharp
 [CreateAssetMenu(fileName = "ItemSO", menuName = "Item")]
@@ -74,7 +72,7 @@ Hierarchy:
 ```
 
 Create 2 items from our `ItemSO` and name them as `GrenadeSO` and `HealthPotionSO`.<br/>
-_Note:_ On project folder, mouse right click on `ItemSO` > Create > Item.
+<sub>_Note:_ On project folder, mouse right click on `ItemSO` > Create > Item.</sub>
 
 Via inspector, attach these new 2 items to the respectively fields on the `Grenade` and `Health Potion` game objects.
 

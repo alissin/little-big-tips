@@ -1,10 +1,9 @@
 ## _**Little Big Tips**_ ![Joystick](https://raw.githubusercontent.com/alissin/alissin.github.io/master/images/joystick.png) > Pattern / Algorithm > object pool pattern
 
-Feel free to try this behaviour on the playable demonstration / prototype: [Realm Defender](https://simmer.io/@alissin/realm-defender).
-
-_Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The scenario and the props are free assets from the Asset Store.
-
 > ![Realm Defender](./../../z_images/realm_defender/object-pool.png)
+
+Feel free to try this behaviour on the playable demonstration / prototype: [Realm Defender](https://simmer.io/@alissin/realm-defender).<br/>
+<sub>_Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The scenario and the props are free assets from the Asset Store.</sub>
 
 #### Problem description
 It's necessary to spawn infinite enemy warriors in a specific time interval. You could use `Instantiate()` and `Destroy()` methods to spawn / destroy them but it is not a good practice because it has a high cost in performance. Imagine a game with different waves of enemies for example.
@@ -130,7 +129,7 @@ public void OnHide()
 }
 ```
 
-_Note:_ To keep this example simple and focused on the object pool mechanism, it's up to you to decide how to get the reference of `Spawn Controller` script. You could use `FindObjectOfType<SpawnController>()` but I suggest the observer pattern, callback mechanism like an `Event` / `Action` or even the [singleton pattern](../singleton) with a global access on this spawner mechanism.
+<sub>_Note:_ To keep this example simple and focused on the object pool mechanism, it's up to you to decide how to get the reference of `Spawn Controller` script. You could use `FindObjectOfType<SpawnController>()` but I suggest the observer pattern, callback mechanism like an `Event` / `Action` or even the [singleton pattern](../singleton) with a global access on this spawner mechanism.</sub>
 
 #### Scripts:
 [SpawnController.cs](./SpawnController.cs), [Enemy.cs](./Enemy.cs)

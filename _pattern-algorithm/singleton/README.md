@@ -1,10 +1,9 @@
 ## _**Little Big Tips**_ ![Joystick](https://raw.githubusercontent.com/alissin/alissin.github.io/master/images/joystick.png) > Pattern / Algorithm > singleton pattern
 
-Feel free to try this behaviour on the playable demonstration / prototype: [Combat Wings](https://simmer.io/@alissin/combat-wings).
-
-_Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The scenario and the props are free assets from the Asset Store.
-
 > ![Combat Wings](./../../z_images/combat_wings/combat-wings.png)
+
+Feel free to try this behaviour on the playable demonstration / prototype: [Combat Wings](https://simmer.io/@alissin/combat-wings).<br/>
+<sub>_Note_: The purpose of this demonstration is to evaluate this gameplay mechanic. The scenario and the props are free assets from the Asset Store.</sub>
 
 #### Problem description
 There are several enemies on this level and all of them need to know where is the player airplane and check if it is close enough to start the attack.
@@ -14,7 +13,7 @@ This pattern implementation garantees a unique global instance of the player and
 
 #### Solution suggestion
 In this case a singleton instance of a class will keep the reference of the player airplane, more specifically its position and the enemy can check the distance between then to start the attack.<br/>
-_Note_: The scope of this _**Little Big Tip**_ is only the singleton pattern.
+<sub>_Note_: The scope of this _**Little Big Tip**_ is only the singleton pattern.</sub>
 
 In the hierarchy, create a game object and name it as `Game Manager`:
 
@@ -84,7 +83,7 @@ void CheckPlayerPosition()
 ```
 
 Ok. Now imagine that we need more singletons classes. We need to avoid duplicating code. So, if we will use a singleton, let's use a... more "elegant" singleton then!<br/>
-_Note_: We will use [Generics](https://en.wikipedia.org/wiki/Generic_programming) in this case.
+<sub>_Note_: We will use [Generics](https://en.wikipedia.org/wiki/Generic_programming) in this case.</sub>
 
 Create a C# script `BaseManager.cs` (abstract class):
 
