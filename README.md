@@ -50,3 +50,4 @@ Suggestions and contributions are very welcome!
 
 * [android sdk location](./other-tips/android-sdk-location)
 * [apk installation (command line)](./other-tips/apk-installation)
+* [run webgl locally](./other-tips/run-webgl-locally)

@@ -17,11 +17,11 @@ Now, plug your device on your computer using the USB cable and allow the USB deb
 
 After build your game in Unity and generate the _apk_ file, open the _Run_ app:
 
-> ![run](./run.png)
+> ![run](../../_images/run.png)
 
 Then open the _Command Prompt_:
 
-> ![cmd](./cmd.png)
+> ![cmd](../../_images/cmd.png)
 
 <sub>_Note:_ All the process and the following commands are very similar on macOS as well.</sub>
 
