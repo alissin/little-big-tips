@@ -14,34 +14,39 @@ Suggestions and contributions are very welcome!
 
 > ![Logo](https://raw.githubusercontent.com/alissin/alissin.github.io/master/images/logo.png)
 
-## Pattern / Algorithm
+## Patterns / Algorithms
 
-* [pathfinder using Breadth First Search](./_pattern-algorithm/breadth-first-search)
-* [command pattern](./_pattern-algorithm/command)
-* [component pattern](./_pattern-algorithm/component)
-* [flyweight pattern](./_pattern-algorithm/flyweight)
-* [object pool pattern](./_pattern-algorithm/object-pool)
-* [observer pattern](./_pattern-algorithm/observer)
-* [singleton pattern](./_pattern-algorithm/singleton)
-* [state pattern](./_pattern-algorithm/state)
-
-## VFX - Shaders / Particle System
-
-* [flag animation shader](./_vfx/flag-animation-shader)
-* [lava animation shader](./_vfx/lava-animation-shader)
-* [sky rotation shader](./_vfx/sky-rotation-shader)
-* [birds flight particle](./_vfx/birds-flight-particle)
-* [smoke particle](./_vfx/smoke-particle)
+* [pathfinder using Breadth First Search](./pattern-algorithm/breadth-first-search)
+* [command pattern](./pattern-algorithm/command)
+* [component pattern](./pattern-algorithm/component)
+* [flyweight pattern](./pattern-algorithm/flyweight)
+* [object pool pattern](./pattern-algorithm/object-pool)
+* [observer pattern](./pattern-algorithm/observer)
+* [singleton pattern](./pattern-algorithm/singleton)
+* [state pattern](./pattern-algorithm/state)
 
 ## General tips
 
-* [airplane movement](./airplane-movement)
-* [drop item by chance](./drop-item-by-chance)
-* [explode the rocket](./explode-the-rocket)
-* [hit damage calculation](./hit-damage-calculation)
-* [land the rocket](./land-the-rocket)
-* [raycast 3D click / touch detection](./raycast-3D-click-detection)
-* [raycast patrol detection](./raycast-patrol-detection)
-* [roll the ball](./roll-the-ball)
-* [simple cooldown](./simple-cooldown)
-* [simple damage shake](./simple-damage-shake)
+* [airplane movement](./general-tips/airplane-movement)
+* [drop item by chance](./general-tips/drop-item-by-chance)
+* [explode the rocket](./general-tips/explode-the-rocket)
+* [hit damage calculation](./general-tips/hit-damage-calculation)
+* [land the rocket](./general-tips/land-the-rocket)
+* [raycast 3D click / touch detection](./general-tips/raycast-3D-click-detection)
+* [raycast patrol detection](./general-tips/raycast-patrol-detection)
+* [roll the ball](./general-tips/roll-the-ball)
+* [simple cooldown](./general-tips/simple-cooldown)
+* [simple damage shake](./general-tips/simple-damage-shake)
+
+## VFX - Shaders / Particle System
+
+* [flag animation shader](./vfx/flag-animation-shader)
+* [lava animation shader](./vfx/lava-animation-shader)
+* [sky rotation shader](./vfx/sky-rotation-shader)
+* [birds flight particle](./vfx/birds-flight-particle)
+* [smoke particle](./vfx/smoke-particle)
+
+## Android (platform) tips
+
+* [apk installation (command line)](./android-platform-tips/apk-installation)
+* [sdk location](./android-platform-tips/sdk-location)
