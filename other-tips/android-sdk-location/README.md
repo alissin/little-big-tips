@@ -1,4 +1,4 @@
-## _**Little Big Tips**_ ![Joystick](https://raw.githubusercontent.com/alissin/alissin.github.io/master/images/joystick.png) > Android (platform) tips > sdk location
+## _**Little Big Tips**_ ![Joystick](https://raw.githubusercontent.com/alissin/alissin.github.io/master/images/joystick.png) > Other tips > android sdk location
 
 #### Problem description
 Sometimes, we fail to build an _apk_ in Unity because we don't have the properly Android api vesion installed. So, where to find the Android SDK installation that Unity is actually using?

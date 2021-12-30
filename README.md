@@ -46,7 +46,7 @@ Suggestions and contributions are very welcome!
 * [birds flight particle](./vfx/birds-flight-particle)
 * [smoke particle](./vfx/smoke-particle)
 
-## Android (platform) tips
+## Other tips
 
-* [apk installation (command line)](./android-platform-tips/apk-installation)
-* [sdk location](./android-platform-tips/sdk-location)
+* [android sdk location](./other-tips/android-sdk-location)
+* [apk installation (command line)](./other-tips/apk-installation)

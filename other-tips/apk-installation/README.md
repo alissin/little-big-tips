@@ -1,4 +1,4 @@
-## _**Little Big Tips**_ ![Joystick](https://raw.githubusercontent.com/alissin/alissin.github.io/master/images/joystick.png) > Android (platform) tips > apk installation (command line)
+## _**Little Big Tips**_ ![Joystick](https://raw.githubusercontent.com/alissin/alissin.github.io/master/images/joystick.png) > Other tips > apk installation (command line)
 
 #### Problem description
 How to install and test an _apk_ on a device simply and quickly? 
