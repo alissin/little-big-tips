@@ -380,12 +380,12 @@ private void Update()
 ```
 
 That's it! Now, let's try our persistence system! Play the game and use the keyboard keys:
-- right arrow to move the player to right;
-- left arrow to move the player to left;
+- right arrow to move the player to the right;
+- left arrow to move the player to the left;
 - (number) 1 to increase the SC value;
-- (number) 2: to increase the HC value;
+- (number) 2 to increase the HC value;
 
-When you are finished, hit `S` to save the game. You should see a console message like this:<br/>
+When you finish, hit `S` to save the game. You should see a console message like this:<br/>
 <sub>_Note:_ You can see the place where the file was saved as well.</sub>
 
 > ![save log](./save-log.png)
