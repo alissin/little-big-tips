@@ -25,6 +25,10 @@ Suggestions and contributions are very welcome!
 * [singleton pattern](./pattern-algorithm/singleton)
 * [state pattern](./pattern-algorithm/state)
 
+## Systems
+
+* [persistence (save and load) system](./system/persistence)
+
 ## General tips
 
 * [airplane movement](./general-tips/airplane-movement)
